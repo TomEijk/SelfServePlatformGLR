@@ -1,0 +1,47 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "Order" as __1_Order{
+id: String
+ordered: Date
+shipped: Date
+ship to: Address
+status: Order Status
+total: Float
+}
+
+class "Item" as __2_Item{
+quantity: Integer
+price: Float
+}
+
+class "Cart" as __3_Cart
+class "Customer" as __4_Customer{
+id: String
+shipping addresses: List
+}
+
+class "Product" as __5_Product{
+id: String
+name: String
+price: Float
+}
+
+class "Order Status" as __6_Order_Status{
+New
+Hold
+Shipped
+Delivered
+}
+
+__1_Order " 1 "  -->  " * " __2_Item: "in order" 
+__2_Item " * "  -->  " 1 " __5_Product: "product definition" 
+__3_Cart " 1 "  -->  " * " __2_Item: "in cart" 
+__4_Customer *--  " 1 " __3_Cart: "shops with" 
+__4_Customer *--  " * " __1_Order: "orders" 
+@enduml

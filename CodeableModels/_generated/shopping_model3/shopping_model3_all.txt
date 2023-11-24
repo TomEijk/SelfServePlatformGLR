@@ -1,0 +1,73 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "Cart" as __1_Cart
+class "Item" as __2_Item{
+quantity: Integer
+price: Float
+}
+
+class "Product" as __3_Product{
+id: String
+name: String
+price: Float
+}
+
+class "Order" as __4_Order{
+id: String
+ordered: Date
+shipped: Date
+ship to: Address
+status: Order Status
+total: Float
+}
+
+class "Customer" as __5_Customer{
+id: String
+shipping addresses: List
+}
+
+class "Person" as __6_Person{
+first name: String
+last name: String
+address: Address
+email: String
+phone: String
+}
+
+class "Staff Member" as __7_Staff_Member{
+id: String
+role: Staff Role
+}
+
+class "Staff Customer" as __8_Staff_Customer
+class "Order Status" as __9_Order_Status{
+New
+Hold
+Shipped
+Delivered
+}
+
+class "Staff Role" as __10_Staff_Role{
+Customer Support
+Management
+IT Support
+Payment Processing
+}
+
+__5_Customer <|--- __8_Staff_Customer
+__6_Person <|--- __5_Customer
+__6_Person <|--- __7_Staff_Member
+__7_Staff_Member <|--- __8_Staff_Customer
+__1_Cart " 1 "  -->  " * " __2_Item: "in cart" 
+__2_Item " * "  -->  " 1 " __3_Product: "product definition" 
+__4_Order " 1 "  -->  " * " __2_Item: "in order" 
+__5_Customer *--  " 1 " __1_Cart: "shops with" 
+__5_Customer *--  " * " __4_Order: "orders" 
+__7_Staff_Member " * "  -->  " * " __7_Staff_Member: "reports to" 
+@enduml

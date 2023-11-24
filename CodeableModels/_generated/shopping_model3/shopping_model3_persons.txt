@@ -1,0 +1,40 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "Person" as __1_Person{
+first name: String
+last name: String
+address: Address
+email: String
+phone: String
+}
+
+class "Customer" as __2_Customer{
+id: String
+shipping addresses: List
+}
+
+class "Staff Member" as __3_Staff_Member{
+id: String
+role: Staff Role
+}
+
+class "Staff Customer" as __4_Staff_Customer
+class "Staff Role" as __5_Staff_Role{
+Customer Support
+Management
+IT Support
+Payment Processing
+}
+
+__1_Person <|--- __2_Customer
+__1_Person <|--- __3_Staff_Member
+__2_Customer <|--- __4_Staff_Customer
+__3_Staff_Member <|--- __4_Staff_Customer
+__3_Staff_Member " * "  -->  " * " __3_Staff_Member: "reports to" 
+@enduml

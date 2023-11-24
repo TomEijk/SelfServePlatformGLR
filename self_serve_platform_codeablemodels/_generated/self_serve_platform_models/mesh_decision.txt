@@ -1,0 +1,37 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "What capabilities are accessible more conveniently\non a Data Mesh Supervision Plane?\n : Decision" as __1_What_capabilities_are_accessible_more_conveniently_on_a_Data_Mesh_Supervision_Plane_
+class "Schema Registry : Pattern" as __2_Schema_Registry
+class "Provide standard API for Data Product Owners to\nget schema from\n : Pattern" as __3_Provide_standard_API_for_Data_Product_Owners_to_get_schema_from
+class "API Catalog : Pattern" as __4_API_Catalog
+class "Data Observability : Pattern" as __5_Data_Observability
+class "Check on how well data contracts are respected\n : Practice" as __6_Check_on_how_well_data_contracts_are_respected
+class "Alerting : Practice" as __7_Alerting
+class "Log management : Practice" as __8_Log_management
+class "Metadata Management : Practice" as __9_Metadata_Management
+class "Data Product Catalog : Pattern" as __10_Data_Product_Catalog
+class "Manage emergent graphs of DPs : Practice" as __11_Manage_emergent_graphs_of_DPs
+class "Knowledge Graph : Practice" as __12_Knowledge_Graph
+class "Discovery and explore DPs : Practice" as __13_Discovery_and_explore_DPs
+class "Business Glossary : Pattern" as __14_Business_Glossary
+__1_What_capabilities_are_accessible_more_conveniently_on_a_Data_Mesh_Supervision_Plane_ --> __2_Schema_Registry: "«Option» \n{name = "Keep track of the different\nschemas"}\n" 
+__1_What_capabilities_are_accessible_more_conveniently_on_a_Data_Mesh_Supervision_Plane_ --> __4_API_Catalog: "«Option» \n{name = "Keep track of the different\nAPIs"}\n" 
+__1_What_capabilities_are_accessible_more_conveniently_on_a_Data_Mesh_Supervision_Plane_ --> __5_Data_Observability: "«Option» \n{name = "Monitor your data"}\n" 
+__1_What_capabilities_are_accessible_more_conveniently_on_a_Data_Mesh_Supervision_Plane_ --> __9_Metadata_Management: "«Option» \n{name = "Focus on metadata management"}\n" 
+__2_Schema_Registry --> __3_Provide_standard_API_for_Data_Product_Owners_to_get_schema_from: "«Uses» \n" 
+__5_Data_Observability --> __6_Check_on_how_well_data_contracts_are_respected: "«Can Use» \n" 
+__5_Data_Observability --> __7_Alerting: "«Can Use» \n" 
+__5_Data_Observability --> __8_Log_management: "«Can Use» \n" 
+__9_Metadata_Management --> __10_Data_Product_Catalog: "«Uses» \n" 
+__9_Metadata_Management --> __12_Knowledge_Graph: "«Uses» \n" 
+__10_Data_Product_Catalog --> __11_Manage_emergent_graphs_of_DPs: "«Uses» \n" 
+__10_Data_Product_Catalog --> __13_Discovery_and_explore_DPs: "«Uses» \n" 
+__10_Data_Product_Catalog --> __14_Business_Glossary: "«Uses» \n" 
+__12_Knowledge_Graph --> __11_Manage_emergent_graphs_of_DPs: "«Uses» \n" 
+@enduml
