@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./CodeableModels",
+        "./self_serve_platform_codeablemodels/self_serve_platform_models"
+    ]
+}

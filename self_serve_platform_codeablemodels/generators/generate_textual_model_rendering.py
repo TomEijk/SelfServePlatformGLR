@@ -3,8 +3,6 @@ import shutil
 from metamodels.guidance_metamodel import decision_solution_relation, decision, force
 from textual_generators import get_names_list, write_file, _get_all_sub_classes_helper
 from metamodels.guidance_metamodel import positive, negative, force_impact_relation
-from self_serve_platform_models.sources_and_codes_model import s1
-
 
 class TextualModelRenderer(object):
     def __init__(self):
