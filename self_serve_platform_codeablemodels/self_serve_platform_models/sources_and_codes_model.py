@@ -279,8 +279,8 @@ s20_codes = [data_source_ingestion, visualization_function, infrastructure_as_co
 add_links({s20: s20_codes}, role_name="contained_code")
 
 s21 = CClass(source, "s21", values={
-    "title": "Self Service Data Platform",
-    "url": "ACHIEVING ENTERPRISE SELF-SERVICE DATA: THE SIX PILLARS OF COMPREHENSIVE CAPABILITIES",
+    "title": "ACHIEVING ENTERPRISE SELF-SERVICE DATA: THE SIX PILLARS OF COMPREHENSIVE CAPABILITIES",
+    "url": "https://radiantadvisors.com/storage/uploads/2c152ae4b.pdf",
     "archive url": "https://bit.ly/self-serve-platform-s21",
     "tiny url": "https://tinyurl.com/self-serve-platform-s21",
     "author type": "Practitioner",
@@ -395,8 +395,8 @@ s29_codes = [access_control,role_based_access_control, secure_dp, security, data
 add_links({s29: s29_codes}, role_name="contained_code")
 
 s30 = CClass(source, "s30", values={
-    "title": "The Definitive Guide To Building A Data Mesh With Event Streams",
-    "url": "https://dzone.com/articles/top-challenges-in-data-mesh-and-how-a-data-product",
+    "title": "Deploying Data Products at the speed of the business",
+    "url": "https://dataception.com/Data-Mesh-Deploying-Data-Products-at-the-speed-of-the-business.html",
     "archive url": "https://bit.ly/self-serve-platform-s30",
     "tiny url": "https://tinyurl.com/self-serve-platform-s30",
     "author type": "Practitioner",
