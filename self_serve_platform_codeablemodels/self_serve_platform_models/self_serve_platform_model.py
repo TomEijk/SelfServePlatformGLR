@@ -1,5 +1,4 @@
 from codeable_models import CClass, add_links, CBundle
-from map_models.map_domain_model import api, message, operation, api_contract
 from metamodels.guidance_metamodel import do_nothing_design_solution, decision, practice, add_decision_option_link, \
     add_stereotyped_link_with_how_tagged_value, force, negative, uses, positive, can_be_realized_with, extension, \
     consider_if_not_decided_yet, decide_for_some_instances_of, pattern, decide_for_all_instances_of, \
@@ -14,628 +13,513 @@ def add_force_relations(force_relations_definition):
 
 
 # patterns
-api_catalog = CClass(pattern, "API Catalog")
-data_catalog = CClass(pattern, "Data Product Catalog") #+ searchability, +discoverability, +centrally govern
-single_data_landing_zone = CClass(pattern, "Single Infrastructure Provisioning and Data Product Developer Experience Plane")
-multiple_data_landing_zones = CClass(pattern, "Source system- and consumer-aligned Infrastructure Provisioning and Data Product Developer Experience Planes")
-cdc = CClass(pattern, "Change Data Capture")
-hub_generic_special_data_landing_zones = CClass(pattern, "Hub-, generic-, and special Infrastructure Provisioning and Data Product Developer Experience Planes")
-large_scale_enterprise = CClass(pattern, "Multiple Data Mesh Governance Planes")
-functional_and_regionally_aligned_data_landing_zones = CClass(pattern, "Functional and Eegionally Infrastructure Provisioning and Data Product Developer Experience Planes")
-register_derived_data_as_data_product = CClass(practice, "Registering the derived batch data set as a platform's own data product")
-distributed_file_storage = CClass(pattern, " Distributed file storage")
-elastic_performance_engine = CClass(pattern, 'Elastic Performance Engine')
-query_engine = CClass(pattern, "Query Engine")
-sql_endpoint = CClass(pattern, 'SQL Endpoint')
-research_groups = CClass(pattern, "Research Groups")
-unified_batch_stream_processing_service = CClass(pattern, 'Unified Batch Stream Processing Service')
-integration_service = CClass(pattern, 'Integration Service')
-workflow_automation_engine = CClass(pattern, 'Workflow Automation Engine')
-polygot_storage_option = CClass(pattern, 'Polygot Storage Option')
-schema_registry = CClass(pattern, 'Schema Registry')
-VMs = CClass(pattern, 'VMs')
-computing_engine = CClass(pattern, 'Computing Engine')
-cataloging_function = CClass(pattern, 'Cataloging Function')
-data_transformation_function = CClass(pattern, "Data Transformation Function")
-data_integration_function = CClass(pattern, 'Data Integration Function')
-business_glossary = CClass(pattern, 'Business Glossary')
-data_observability = CClass(pattern, 'Data Observability')
-experimental_platform = CClass(pattern, 'Experimental Platform')
-other_platforms = CClass(practice, 'Custom Platforms')
-devsecops_pipeline = CClass(pattern, 'DevSecOps Pipeline')
-provide_standard_api_for_data_product_owners_to_get_schema_from = CClass(pattern, 'Provide standard API for Data Product Owners to get schema from')
+federated_query_engine = CClass(pattern, "Federated Query Engine")
+stream_batch_data_connectors = CClass(pattern, "Stream/Batch Data Connectors") 
+batch_stream_data_processors = CClass(pattern, "Batch Stream Data Processors")
+bi_tools = CClass(pattern, "BI Tools")
+polygot_data_storage = CClass(pattern, "Polygot DAta Storage")
+event_stream_platform = CClass(pattern, "Event Stream Platform")
+schema_registry = CClass(pattern, "Schema Registry")
+model_store = CClass(pattern, "Model Store")
+metadata_store = CClass(practice, "Metadata Store")
+bi_tool_connectors = CClass(pattern, "BI Tool Connectors")
+legacy_and_operational_system_connectors = CClass(pattern, 'Legacy and Operational System Connectors')
+connector_repository = CClass(pattern, "Connector Repository")
+pipeline_orchestrator = CClass(pattern, 'Pipeline Orchestrator')
+pipeline_workflow = CClass(pattern, "Pipeline/Workflow")
+external_dsl = CClass(pattern, 'External DSL')
+embedded_dsl = CClass(pattern, 'Embedded DSL')
+low_no_code_programming_model = CClass(pattern, 'Low/no Code Programming Model')
+pipeline_connectors = CClass(pattern, 'Pipeline Connectors')
+data_pipeline = CClass(pattern, 'Data Pipeline')
+ml_pipeline = CClass(pattern, 'ML Pipeline')
+template_repository = CClass(pattern, 'Template Repository')
+cataloging_product_assets = CClass(pattern, 'Cataloging Product Assets')
+api_catalog = CClass(pattern, 'API Catalog')
+data_catalog = CClass(pattern, 'Data Catalog')
+pull_model = CClass(pattern, 'Pull Model')
+push_model = CClass(pattern, 'Push Model')
+policy_as_code = CClass(pattern, 'Policy-as-Code')
+authoring_tools = CClass(pattern, 'Authoring Tools')
+policy_engines = CClass(pattern, 'Policy Engines')
+data_quality_checkers = CClass(pattern, 'Data Quality Checkers')
+access_and_identity_manager = CClass(pattern, 'Access and Identity Manager')
+privacy_enhancing_technologies = CClass(pattern, 'Privacy-Enhancing Technologies (PET)')
+networking = CClass(pattern, 'Networking')
+compute = CClass(pattern, 'Compute')
+container_orchestrators = CClass(pattern, 'Container Orchestrators')
+container_registry = CClass(pattern, 'Container Registry')
+containers = CClass(pattern, 'Containers')
+auto_scaling = CClass(pattern, 'Auto-scaling')
+iac = CClass(pattern, 'IaC')
+iac_based_orchestrators = CClass(pattern, 'IaC based Orchestrators')
+vpc = CClass(pattern, 'VPC')
+multi_tenancy = CClass(pattern, 'Multi-tenancy')
+vms = CClass(pattern, 'VMs')
+faas = CClass(pattern, 'FaaS')
+faas_orchestrators = CClass(pattern, 'FaaS Orchestrators')
+ci_cd_pipeline = CClass(pattern, 'CI-CD Pipeline')
+ci_cd_platform = CClass(pattern, 'CI-CD Platform')
+version_control_system = CClass(pattern, 'Version Control System')
+library = CClass(pattern, 'Library')
+cli = CClass(pattern, 'CLI')
+web_ui = CClass(pattern, 'Web UI')
+web_api = CClass(pattern, 'Web API')
+low_level_catalog_apis = CClass(pattern, 'Low-level Catalog APIs')
+data_product_contract = CClass(pattern, 'Data Product Contract')
+metric_calculation_pipeline = CClass(pattern, 'Metric Calculation Pipeline')
+data_product_code_repository = CClass(pattern, 'Data Product Code Repository')
+push_pull_notfication = CClass(pattern, 'Push/pull Notification')
+global_data_lineage_graphs = CClass(pattern, 'Global Data Lineage Graphs')
+alerts = CClass(pattern, 'Alerts')
+high_level_policy_enforcement_api = CClass(pattern, 'High-level Policy Enforcement API')
+data_mesh_graphs = CClass(pattern, 'Data Mesh Graphs')
 
 # practices
-data_discovery = CClass(practice, "Data Discovery")
-build_deploy_monitor_dp_separated = CClass(practice, 'Separate build, deploy and monitor as three autonomous functions')
-build_deploy_monitor_dp_unified = CClass(practice, 'Use build, deploy and monitor as interchangeable aspects in a single function')
-data_security = CClass(practice, "Data Security")
-data_profiling = CClass(practice, "Data Profiling")
-data_access = CClass(practice, "Data Access")
-data_lineage = CClass(practice, "Data Lineage")
-networking = CClass(practice, "Interconnectivity")
-data_quality_management = CClass(practice, 'Check on how well data contracts are respected')
-cross_cutting_concerns = CClass(practice, 'Cross-cutting Concerns')
-ci_cd_process = CClass(practice, 'CI/CD process')
-runtime_observability = CClass(practice, 'Runtime Observability')
-application_bootstraps = CClass(practice, 'Application Bootstraps')
-self_serve_ui = CClass(practice, 'Self-Serve UI')
-quality_management = CClass(practice, 'Quality Management')
-log_management = CClass(practice, 'Log management')
-mdm = CClass(practice, "Master Data Management")
-ml_services = CClass(practice, "ML services")
-data_lake_services = CClass(practice, "Data Lake Service")
-VNetPeering = CClass(practice, "VNetPeering")
-private_endpoints = CClass(practice, "Private Endpoints")
-event_streaming_backbone = CClass(pattern, "Event Streaming Backbone")
-lambda_architecture = CClass(pattern, "Lambda Architecture")
-kappa_architecture = CClass(pattern, "Kappa Architecture")
-data_source_ingestion = CClass(practice, "Data Source Ingestion")
-access_control_management = CClass(practice, "Access control management")
-manage_read_write_permissions = CClass(practice, "Manage read write functions")
-policy_automation = CClass(practice, "Policy Automation")
-managed_compute_infrastructure = CClass(practice, "Managed Compute Infrastructure") #+ abstract away, + elastic, + adapt to change
-no_code_transformation = CClass(practice, "No-code transformation")
-dependable_pipeline_management = CClass(practice, "Dependable pipeline management")
-automated_issue_detection = CClass(practice, "Automated issue detection")
-alerting = CClass(practice, "Alerting")
-resolution = CClass(practice, "Resolution")
-configure_depency = CClass(practice, "Configure pipelines for dependency management")
-configure_thresholds = CClass(practice, "Configure pipelines for error tolerance thresholds")
-configure_scheduling = CClass(practice, "Configure pipelines for scheduling")
-data_transformation_orchestration = CClass(practice, "Data Transformation Orchestration")
-manage_security_policies_of_dps = CClass(practice, "Manage security policies of DPs")
-manage_emergent_graphs_of_dps = CClass(practice, "Manage emergent graphs of DPs")
-discovery_and_explore_dps = CClass(practice, "Discovery and explore DPs")
-declaratively_create_dp = CClass(practice, "Declaratively create DP")
-read_dp = CClass(practice, "Read DP")
-version_dp = CClass(practice, "Version DP")
-secure_dp = CClass(practice, "Secure DP")
-build_deploy_monitor_dp = CClass(practice, "Build, deploy, monitor DP")
-separating_storage_and_compute = CClass(practice, 'Separating storage and compute') # + scalability, + autonomous
-separating_compute_from_compute = CClass(practice, 'Separating compute from compute') # + scalability, + autonomous
-restore_data_without_backups = CClass(practice, 'Ability to restore data and set back without having to take care of backups')
-in_place_consumption = CClass(practice, 'In-place consumption') #- data movement, + global governance, + discrepancies, - costs, + up-to-date, + access control
-scale_across_platforms_and_regions = CClass(practice, 'Ability to scale globally across platforms and regions')
-metadata_management = CClass(practice, 'Metadata Management')
-runtime_metadata = CClass(practice, 'Automatically make runtime data available')
-compatible_metadata = CClass(practice, 'Automatically publish compatible metadata')
-document_dp = CClass(practice, 'Establish Data Contract')
-knowledge_graph = CClass(practice, 'Knowledge Graph')
-central_search_function = CClass(practice, 'Central Search Function')
-set_privacy_dp = CClass(practice, 'Set privacy DP')
-elastic_performance_engine = CClass(pattern, 'Elastic Performance Engine')
-infrastructure_as_code = CClass(practice, 'Infrastructure as Code')
-visualization_function = CClass(practice, "Visualization Function")
-software_as_a_service = CClass(practice, 'Software as a Service')
-uptime_checks = CClass(practice, 'Uptime checks')
-cost_management = CClass(practice, 'Cost Managment')
-governed_mesh_topology = CClass(practice, "Governed Mesh Topology")
-reporting_services = CClass(practice, "Reporting Services")
-ml_platform = CClass(practice, "ML platform")
-testing_dp = CClass(practice, "Testing DP for Deployment and Provisioning")
-crud_operations = CClass(practice, "CRUD operations")
-collaboration_function = CClass(practice, "Collaboration Function")
-building_reports_dashboards = CClass(practice, "Building reports/dashboards")
-building_pipeline_function = CClass(practice, "Building pipeline function")
-data_governance_function = CClass(practice, "Data Governance function")
-application_build_function = CClass(practice, "Application build function")
-adding_data_set_function = CClass(practice, "Adding data set function")
-query_recommendation_function = CClass(practice, "Query Recommendation Function")
-export_data_set_function = CClass(practice, "Export data set function")
-role_based_access_control = CClass(practice, "Role-based Access Control")
-feedback_loop = CClass(pattern, 'Feedback Loop')
-data_product_as_self_serve = CClass(pattern, 'Data Product as Self-Serve')
-persona_to_tool_approach = CClass(practice, 'Persona to Tool approach')
-change_management = CClass(practice, 'Change Management')
-incremental = CClass(practice, 'Incremental')
-full_refresh = CClass(practice, 'Full Refresh')
-access_control = CClass(practice, 'Access controls')
-visualize_schemas_contracts = CClass(practice, 'Visualize Schemas and Contracts')
-alerting_and_monitoring = CClass(practice, 'Alerting and Monitoring')
-visualize_access = CClass(practice, 'Visualize Data Access History')
-
-# forces
-complexity = CClass(force, "Complexity")
-data_quality = CClass(force, "Data Quality")
-transparency = CClass(force, "Transparency")
-latency = CClass(force, "Latency")
-maintenance_needs = CClass(force, 'Maintenance Needs')
-duplication = CClass(force, "Duplication")
-ease_of_administration = CClass(force, 'Ease of Administration')
-time_to_value = CClass(force, 'Time-to-Value')
-agility = CClass(force, "Agility")
-freshness = CClass(force, "Data Freshness")
-interoperability = CClass(force, 'Interoperability')
-decentralization = CClass(force, 'Decentralization')
-compatibility = CClass(force, 'Compatability')
-efficiency = CClass(force, 'Efficiency')
-distinguish = CClass(force, "Distinguish")
-domain_agnostic = CClass(force, "Domain-agnostic")
-regional_legal = CClass(force, "Flexibility in regional or legal boundaries")
-control_over_data = CClass(force, "Control over data")
-redeliveries = CClass(force, "Redeliveries")
-scalability = CClass(force, 'Scalability')
-storage_function = CClass(practice, "Storage Function")
-searchability = CClass(force, "Searchability")
-discoverability = CClass(force, "Discoverability")
-centrally_govern = CClass(practice, "Centrally govern data")
-abstact_away_details = CClass(force, "Abstract away computational details")
-elastic = CClass(force, "Elastic")
-adapt_to_changing_volumes = CClass(force, "Adapt to changing volumes")
-autonomous = CClass(force, 'Autonomous')
-data_movement = CClass(force, 'Data movement')
-global_governance = CClass(force, 'Global governance')
-federated_analytics = CClass(force, 'Federated analytics')
-delegated_ownership = CClass(force, 'Delegated ownership')
-flexibility = CClass(force, 'Flexibility')
-ad_hoc_exploration = CClass(force, 'Ad hoc exploration')
-feature_engineering = CClass(force, 'Feature Engineering')
-understandability = CClass(force, 'Understandability')
-accessibility = CClass(force, 'Accessibility')
-automation = CClass(force, 'Automation')
-usability = CClass(force, 'Usability')
-resource_deployment_process = CClass(force, 'Resource deployment process')
-inconsistencies_between_deployed_resources_and_declared_code_in_source_control = CClass(force, 'Inconsistencies between deployed resources and declrared code in source control')
-reduce_work_data_product_team = CClass(force, 'Reduce work done by data product team')
-easily_replicable = CClass(force, 'Easily Replicable')
-accuracy = CClass(force, 'Accuracy')
-avoids_information_island = CClass(force, 'Avoids Information Island')
-container_registry = CClass(force, 'Container Registry')
-entry_barier = CClass(force, 'Entry Barrier')
-security = CClass(force, 'Security')
-
+ingesting_data_from_various_sources = CClass(practice, "Ingesting Data from Various Sources")
+sending_data_to_various_sinks = CClass(practice, 'Sending Data to Various Sinks')
+transforming_data = CClass(practice, 'Transforming Data')
+storing_various_data = CClass(practice, "Storing Various Data")
+storing_other_various_assets = CClass(practice, "Storing Other Various Assets")
+how_to_support_orchestration_of_complex_data_transformations = CClass(practice, "ADD 1.1: How to support orchestration of complex data transformations?")
+how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations = CClass(practice, "ADD 1.2: How to support generalists as well data engineers in product teams in writing data transformations?")
+how_to_support_customization_and_reuse_of_pipelines = CClass(practice, "ADD 1.3: How to support customization and reuse of pipelines?")
+pipeline_templates = CClass(practice, 'Pipeline Templates')
+monitoring_infrastructure_resources = CClass(practice, 'Monitoring Infrastructure Resources, Product Components and Assets')
+defining_and_enforcing_of_governance_policies = CClass(practice, 'Defining and Enforcing of Governance Policies')
+resource_usage_and_cost_management = CClass(practice, 'Resource Usage and Cost Management')
+alert_generation = CClass(practice, 'Alert Generation')
+log_management = CClass(practice, 'Log Management')
+how_to_publish_assets_information = CClass(practice, 'How to publish assets information?')
+how_to_catalog_various_assets = CClass(practice, 'How to catalog various assets?')
+how_to_propagate_the_changes_to_the_status_of_assets = CClass(practice, 'How to propagate the changes to the status of assets?')
+what_deployment_options_should_be_supported = CClass(practice, "What deployment options should be supported?")
+how_should_resources_be_provisioned_and_managed = CClass(practice, 'How should resources be provisioned and managed?')
+how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation = CClass(practice, 'How should resources be shared among domain terms while ensuring workload isolation?')
+build_scripts_and_ui = CClass(practice, 'Build Scripts and UI')
+how_to_automate_building_delivery_and_deployment_of_product_and_platform_components = CClass(practice, 'How to automate building, delivery, and deployment of product and platform components?')
+what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane = CClass(practice, 'What should be the form of the APIs of the infrastructure utility plane?')
+should_a_platform_component_be_built_or_bought = CClass(practice, 'Should a component be built or bought?')
+how_should_the_features_and_usage_workflows_of_a_platform_component_be_decided = CClass(practice, 'How should the features and usage workflows of a platform component be decided?')
+build_dp = CClass(practice, 'Build DP')
+test_dp = CClass(practice, 'Test DP')
+deploy_dp = CClass(practice, 'Deploy DP')
+publish_dp = CClass(practice, 'Publish DP')
+connect_and_read_dp = CClass(practice, 'Connect and Read DP')
+monitor_dp = CClass(practice, 'Monitor DP')
+govern_dp = CClass(practice, 'Govern DP')
+evolve_dp = CClass(practice, 'Evolve DP')
+version_dp = CClass(practice, 'Version DP')
+how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum = CClass(practice, 'How to enable developers to correctly assemble all code units and treat them as a single architectural quantum?')
+how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform = CClass(practice, 'How to make the experience of discovering detailed information of a product uniform?')
+how_to_enable_consumers_to_provide_the_feedback_on_a_product = CClass(practice, 'How to enable comnsumers to provide the feedback on a product?')
+how_to_safely_change_products_and_notify_changes = CClass(practice, 'How to safely change products and how to notify changes?')
+how_to_automate_building_and_delivery_of_dps = CClass(practice, 'How to automate building and delivery of DPs?')
+product_blueprint = CClass(practice, 'Product Blueprint')
+personas_first = CClass(practice, 'Personas-first')
+tool_first = CClass(practice, 'Tool-first')
+build = CClass(practice, 'Build')
+buy = CClass(practice, 'Buy')
+data_product_metric = CClass(practice, 'Data Product Metric')
+ci_cd_integration = CClass(practice, 'CI-CD Integration')
+iac_blueprint = CClass(practice, 'IaC Blueprint')
+data_catalog_template = CClass(practice, 'Data Catalog Template')
+register_data_products = CClass(practice, 'Register Data Products')
+search_data_products = CClass(practice, 'Search Data Products')
+monitor_data_mesh = CClass(practice, 'Monitor Data Mesh')
+govern_data_mesh = CClass(practice, 'Govern Data Mesh')
+how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products = CClass(practice, 'How to provide a uniform experience for registering and browsing data products?')
+data_mesh_dashboard = CClass(practice, 'Data Mesh Dashboard')
+how_to_enforce_global_policies = CClass(practice, 'How to enforce global policies?')
+how_to_enforce_data_contracts = CClass(practice, 'How to enforce data contracts?')
+data_product_registry = CClass(practice, 'Data Product Registry')
+what_should_be_displaced_in_the_dashboard = CClass(practice, 'What should be displaced in the dashboard?')
+automated = CClass(practice, 'Automated')
+manual_or_semi_automated = CClass(practice, 'Manual or Semi-Automated')
+data_product_access_history = CClass(practice, 'Data Product Access History')
 
 # decisions, options, and contexts
 
-infra_provision_decision = CClass(decision, "Which architectural design elements should be offered by the Data Infrastructure Provisioning Plane?")
-add_decision_option_link(infra_provision_decision, workflow_automation_engine,
-                         "Implement a workflow automation engine")
-add_decision_option_link(infra_provision_decision, access_control,
-                         "Provide access controls")
-add_decision_option_link(infra_provision_decision, networking,
-                         "Enable networking")
-add_decision_option_link(infra_provision_decision, data_transformation_orchestration,
-                         "Include an orchestrator for the transformations")
-add_decision_option_link(infra_provision_decision, VMs,
-                         "Provision VMs")
-add_decision_option_link(infra_provision_decision, container_registry,
-                         "Provision a container registry")
-add_decision_option_link(infra_provision_decision, data_source_ingestion,
-                         "Provision the data source ingestion practices")
-add_decision_option_link(infra_provision_decision, managed_compute_infrastructure,
-                         "Provide a managed compute infrastructure")
-add_decision_option_link(infra_provision_decision, polygot_storage_option,
-                         "Enable a polygot storage option")
-add_decision_option_link(infra_provision_decision, other_platforms,
-                         "Create a customer platform")
-add_force_relations({workflow_automation_engine: {ease_of_administration: very_positive,
-                                                  discoverability: positive,
-                                                  time_to_value: positive,
-                                                  agility: very_positive,
-                                                  maintenance_needs: negative,
-                                                  control_over_data: negative},
-                     access_control: {transparency: positive,
-                                      security: very_positive,
-                                      compatibility: positive,
-                                      complexity: negative,
-                                      maintenance_needs: very_negative},
-                    networking: {interoperability: very_positive,
-                                 agility: positive,
-                                 efficiency: positive,
-                                 complexity: negative,
-                                 domain_agnostic: negative},
-                    data_transformation_orchestration: {resource_deployment_process: positive,
-                                                        efficiency: positive,
-                                                        automation: positive,
-                                                        latency: negative,
-                                                        time_to_value: negative},
-                     VMs: {scalability: positive,
-                           elastic: positive,
-                           complexity: negative,
-                           time_to_value: negative},
-                     data_source_ingestion: {freshness: very_positive,
-                                             interoperability: positive,
-                                             discoverability: positive,
-                                             resource_deployment_process: negative,
-                                             complexity: negative,
-                                             time_to_value: negative},
-                     managed_compute_infrastructure: {scalability: very_positive,
-                                                      accessibility: positive,
-                                                      global_governance: positive,
-                                                      complexity: negative,
-                                                      maintenance_needs: negative},
-                     polygot_storage_option: {autonomous: very_positive,
-                                              scalability: positive,
-                                              adapt_to_changing_volumes: very_positive,
-                                              data_movement: negative,
-                                              complexity: negative},
-                     other_platforms: {agility: positive,
-                                       time_to_value: positive,
-                                       compatibility: positive,
-                                       complexity: negative,
-                                       entry_barier: negative}
-                     })
+infra_decision = CClass(decision, "Which capabilities/APIs should be offered by the infrastructure utility plane for executing data product components, and how?")
+add_decision_option_link(infra_decision, ingesting_data_from_various_sources,
+                         "Option")
+add_decision_option_link(infra_decision, sending_data_to_various_sinks,
+                         "Option")
+add_decision_option_link(infra_decision, transforming_data,
+                         "Option")
+add_decision_option_link(infra_decision, storing_various_data,
+                         "Option")
+add_decision_option_link(infra_decision, storing_other_various_assets,
+                         "Option")
 
-ml_other = \
-    ml_platform.add_links(other_platforms, role_name="from", stereotype_instances=can_use)[0]
-ex_other = \
-    experimental_platform.add_links(other_platforms, role_name="from", stereotype_instances=can_use)[0]
+ing_fed = \
+    federated_query_engine.add_links(ingesting_data_from_various_sources, role_name="from", stereotype_instances=can_use)[0]
+ing_stream = \
+    stream_batch_data_connectors.add_links(ingesting_data_from_various_sources, role_name="from", stereotype_instances=can_use)[0]
 
-elastic_compute = \
-    elastic_performance_engine.add_links(managed_compute_infrastructure, role_name="from", stereotype_instances=can_use)[0]
-query_compute = \
-    query_engine.add_links(managed_compute_infrastructure, role_name="from", stereotype_instances=can_use)[0]
-compute_compute = \
-    separating_compute_from_compute.add_links(managed_compute_infrastructure, role_name="from", stereotype_instances=can_use)[0]
-compute_storage = \
-    separating_storage_and_compute.add_links(managed_compute_infrastructure, role_name="from", stereotype_instances=can_use)[0]
+send_stream = \
+    stream_batch_data_connectors.add_links(sending_data_to_various_sinks, role_name="from", stereotype_instances=can_use)[0]
+trans_batch = \
+    batch_stream_data_processors.add_links(transforming_data, role_name="from", stereotype_instances=can_use)[0]
+support_trans = \
+    how_to_support_orchestration_of_complex_data_transformations.add_links(transforming_data, role_name="from", stereotype_instances=can_use)[0]
+trans_bi = \
+    bi_tools.add_links(transforming_data, role_name="from", stereotype_instances=can_use)[0]
+trans_eng = \
+    how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations.add_links(transforming_data, role_name="from", stereotype_instances=can_use)[0]
+pol_store = \
+    polygot_data_storage.add_links(storing_various_data, role_name="from", stereotype_instances=can_use)[0]
+even_plat = \
+    event_stream_platform.add_links(storing_various_data, role_name="from", stereotype_instances=can_use)[0]
+store_reg = \
+    schema_registry.add_links(storing_other_various_assets, role_name="from", stereotype_instances=uses)[0]
+store_model = \
+    model_store.add_links(storing_other_various_assets, role_name="from", stereotype_instances=can_use)[0]
+store_meta = \
+    metadata_store.add_links(storing_other_various_assets, role_name="from", stereotype_instances=uses)[0]
+leg_stream = \
+    legacy_and_operational_system_connectors.add_links(stream_batch_data_connectors, role_name="from", stereotype_instances=uses)[0]
+bi_stream = \
+    bi_tool_connectors.add_links(stream_batch_data_connectors, role_name="from", stereotype_instances=uses)[0]
+orches_pipe = \
+    pipeline_workflow.add_links(how_to_support_orchestration_of_complex_data_transformations, role_name="from", stereotype_instances=uses)[0]
+pipe_pipe = \
+    pipeline_orchestrator.add_links(pipeline_workflow, role_name="from", stereotype_instances=uses)[0]
+pipe_conn = \
+    connector_repository.add_links(pipeline_connectors, role_name="from", stereotype_instances=uses)[0]
+pipe_cuss = \
+    pipeline_connectors.add_links(how_to_support_customization_and_reuse_of_pipelines, role_name="from", stereotype_instances=uses)[0]
+pipe_temp = \
+    pipeline_templates.add_links(how_to_support_customization_and_reuse_of_pipelines, role_name="from", stereotype_instances=uses)[0]
+data_pipe = \
+    data_pipeline.add_links(pipeline_workflow, role_name="from", stereotype_instances=uses)[0]
+ml_data = \
+    data_pipeline.add_links(ml_pipeline, role_name="from", stereotype_instances=uses)[0]
+work_ml = \
+    ml_pipeline.add_links(pipeline_workflow, role_name="from", stereotype_instances=uses)[0]
+temp_pipe = \
+    pipeline_templates.add_links(pipeline_workflow, role_name="from", stereotype_instances=uses)[0]
+temp_cus = \
+    how_to_support_customization_and_reuse_of_pipelines.add_links(pipeline_workflow, role_name="from", stereotype_instances=uses)[0]
+ext_sup = \
+    external_dsl.add_links(how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations, role_name="from", stereotype_instances=uses)[0]
+emb_sup = \
+    embedded_dsl.add_links(how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations, role_name="from", stereotype_instances=uses)[0]
+low_gen = \
+    low_no_code_programming_model.add_links(how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations, role_name="from", stereotype_instances=uses)[0]
+low_gen = \
+    template_repository.add_links(pipeline_templates, role_name="from", stereotype_instances=uses)[0]
 
-storage_compute = \
-    separating_storage_and_compute.add_links(polygot_storage_option, role_name="from", stereotype_instances=can_use)[0]
-storage_distributed = \
-    distributed_file_storage.add_links(polygot_storage_option, role_name="from", stereotype_instances=uses)[0]
+gov_decision = CClass(decision, "Which capabilities should be offered by the data infrastructure plane for various governance functions at the product level and mesh level and how?")
+add_decision_option_link(gov_decision, cataloging_product_assets,
+                         "Option")
+add_decision_option_link(gov_decision, defining_and_enforcing_of_governance_policies,
+                         "Option")
+add_decision_option_link(gov_decision, monitoring_infrastructure_resources,
+                         "Option")
 
-net_pipeline = \
-    dependable_pipeline_management.add_links(data_transformation_orchestration, role_name="from", stereotype_instances=can_use)[0]
-net_depency = \
-    configure_depency.add_links(data_transformation_orchestration, role_name="from", stereotype_instances=uses)[0]
-net_thresholds = \
-    configure_thresholds.add_links(data_transformation_orchestration, role_name="from", stereotype_instances=uses)[0]
-net_scheduling = \
-    configure_scheduling.add_links(data_transformation_orchestration, role_name="from", stereotype_instances=uses)[0]
+how_cat = \
+    how_to_catalog_various_assets.add_links(cataloging_product_assets, role_name="from", stereotype_instances=can_use)[0]
+api_how = \
+    api_catalog.add_links(how_to_catalog_various_assets, role_name="from", stereotype_instances=can_use)[0]
+data_how = \
+    data_catalog.add_links(how_to_catalog_various_assets, role_name="from", stereotype_instances=can_use)[0]
+model_how = \
+    model_store.add_links(how_to_catalog_various_assets, role_name="from", stereotype_instances=can_use)[0]
+pub_cat = \
+    how_to_publish_assets_information.add_links(cataloging_product_assets, role_name="from", stereotype_instances=can_use)[0]
+prop_cat = \
+    how_to_propagate_the_changes_to_the_status_of_assets.add_links(cataloging_product_assets, role_name="from", stereotype_instances=can_use)[0]
+pull_cat = \
+    pull_model.add_links(how_to_publish_assets_information, role_name="from", stereotype_instances=can_use)[0]
+push_cat = \
+    push_model.add_links(how_to_publish_assets_information, role_name="from", stereotype_instances=can_use)[0]
+pull_prop = \
+    pull_model.add_links(how_to_propagate_the_changes_to_the_status_of_assets, role_name="from", stereotype_instances=can_use)[0]
+push_prop = \
+    push_model.add_links(how_to_propagate_the_changes_to_the_status_of_assets, role_name="from", stereotype_instances=can_use)[0]
+pol_for = \
+    policy_as_code.add_links(defining_and_enforcing_of_governance_policies, role_name="from", stereotype_instances=can_use)[0]
+auth_pol = \
+    authoring_tools.add_links(policy_as_code, role_name="from", stereotype_instances=can_use)[0]
+pol_pol = \
+    policy_engines.add_links(policy_as_code, role_name="from", stereotype_instances=can_use)[0]
+qual_pol = \
+    data_quality_checkers.add_links(policy_as_code, role_name="from", stereotype_instances=can_use)[0]
+access_pol = \
+    access_and_identity_manager.add_links(policy_as_code, role_name="from", stereotype_instances=can_use)[0]
+priv_pol = \
+    privacy_enhancing_technologies.add_links(policy_as_code, role_name="from", stereotype_instances=can_use)[0]
+alert_mon = \
+    alert_generation.add_links(monitoring_infrastructure_resources, role_name="from", stereotype_instances=can_use)[0]
+log_mon = \
+    log_management.add_links(monitoring_infrastructure_resources, role_name="from", stereotype_instances=can_use)[0]
+res_mon = \
+    resource_usage_and_cost_management.add_links(monitoring_infrastructure_resources, role_name="from", stereotype_instances=can_use)[0]
 
-no_code_self = \
-    no_code_transformation.add_links(declaratively_create_dp, role_name="from", stereotype_instances=uses)[0]
+dep_decision = CClass(decision, "Which capabilities should be offered by the infrastructure utility plane for deploying products, and how?")
+add_decision_option_link(dep_decision, what_deployment_options_should_be_supported,
+                         "Option")
+add_decision_option_link(dep_decision, how_should_resources_be_provisioned_and_managed,
+                         "Option")
+add_decision_option_link(dep_decision, how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation,
+                         "Option")
+net_what = \
+    networking.add_links(what_deployment_options_should_be_supported, role_name="from", stereotype_instances=can_use)[0]
+com_what = \
+    compute.add_links(what_deployment_options_should_be_supported, role_name="from", stereotype_instances=can_use)[0]
+con_com = \
+    containers.add_links(compute, role_name="from", stereotype_instances=can_use)[0]
+vm_com = \
+    vms.add_links(compute, role_name="from", stereotype_instances=can_use)[0]
+fa_com = \
+    faas.add_links(compute, role_name="from", stereotype_instances=can_use)[0]
+con_con = \
+    container_orchestrators.add_links(containers, role_name="from", stereotype_instances=can_use)[0]
+reg_con = \
+    container_registry.add_links(containers, role_name="from", stereotype_instances=can_use)[0]
+fa_fa = \
+    faas_orchestrators.add_links(faas, role_name="from", stereotype_instances=can_use)[0]
+build_how = \
+    build_scripts_and_ui.add_links(how_should_resources_be_provisioned_and_managed, role_name="from", stereotype_instances=can_use)[0]
+auto_how = \
+    auto_scaling.add_links(how_should_resources_be_provisioned_and_managed, role_name="from", stereotype_instances=can_use)[0]
+iac_how = \
+    iac.add_links(how_should_resources_be_provisioned_and_managed, role_name="from", stereotype_instances=can_use)[0]
+iac_orch = \
+    iac_based_orchestrators.add_links(iac, role_name="from", stereotype_instances=can_use)[0]
+vpc_how = \
+    vpc.add_links(how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation, role_name="from", stereotype_instances=can_use)[0]
+mutli_how = \
+    multi_tenancy.add_links(how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation, role_name="from", stereotype_instances=can_use)[0]
 
-data_product_developer_decision = CClass(decision, "What elements should be considered when designing a Data Product Developer Experience Plane?")
-add_decision_option_link(data_product_developer_decision, build_deploy_monitor_dp,
-                         "Provision a build, deploy, monitor interface")
-add_decision_option_link(data_product_developer_decision, version_dp,
-                         "Provision a versioning interface")
-add_decision_option_link(data_product_developer_decision, secure_dp,
-                         "Provision a security interface")
-add_decision_option_link(data_product_developer_decision, read_dp,
-                         "Provision a read interface")
-add_decision_option_link(data_product_developer_decision, document_dp,
-                         "Provision a document interface")
-add_decision_option_link(data_product_developer_decision, declaratively_create_dp,
-                         "Provision a declaratively create interface")
-add_decision_option_link(data_product_developer_decision, testing_dp,
-                         "Provision a testing interface")
-add_decision_option_link(data_product_developer_decision, feedback_loop,
-                         "Provision a Feedback Loop interface")
-add_decision_option_link(data_product_developer_decision, crud_operations,
-                         "Provision a CRUD interface")
-add_force_relations({build_deploy_monitor_dp: {maintenance_needs: positive,
-                                                  scalability: positive,
-                                                  time_to_value: positive,
-                                                transparency: positive},
-                    version_dp: {federated_analytics: positive,
-                                 reduce_work_data_product_team: positive,
-                                 easily_replicable: positive,
-                                 control_over_data: negative},
-                     secure_dp: {security: positive,
-                                 control_over_data: positive,
-                                 entry_barier: negative,
-                                 usability: negative},
-                     feedback_loop: {usability: positive,
-                                     understandability: positive,
-                                     discoverability: positive,
-                                     accuracy: negative,
-                                     agility: negative},
-                     read_dp: {discoverability: positive,
-                               searchability: positive,
-                               abstact_away_details: positive},
-                    document_dp: {global_governance: very_positive,
-                                  discoverability: positive,
-                                  searchability: positive,
-                                  inconsistencies_between_deployed_resources_and_declared_code_in_source_control: negative,
-                                  maintenance_needs: negative,
-                                  redeliveries: negative},
-                     declaratively_create_dp: {scalability: positive,
-                                               duplication: positive,
-                                               automation: positive,
-                                               reduce_work_data_product_team: negative},
-                     testing_dp: {discoverability: positive,
-                                  maintenance_needs: positive,
-                                  accuracy: positive,
-                                  time_to_value: negative},
-                     crud_operations: {abstact_away_details: positive,
-                                       reduce_work_data_product_team: positive}
-                     })
+cross_decision = CClass(decision, "What are the cross-cutting capabilities and processes of the infrastructure plane?")
+add_decision_option_link(cross_decision, how_to_automate_building_delivery_and_deployment_of_product_and_platform_components,
+                         "Option")
+add_decision_option_link(cross_decision, what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane,
+                         "Option")
+add_decision_option_link(cross_decision, should_a_platform_component_be_built_or_bought,
+                         "Option")
+add_decision_option_link(cross_decision, how_should_the_features_and_usage_workflows_of_a_platform_component_be_decided,
+                         "Option")
 
-issue_monitor = \
-    automated_issue_detection.add_links(build_deploy_monitor_dp, role_name="from", stereotype_instances=uses)[0]
-uptime_build = \
-    uptime_checks.add_links(build_deploy_monitor_dp, role_name="from", stereotype_instances=uses)[0]
-sep_build = \
-    build_deploy_monitor_dp_separated.add_links(build_deploy_monitor_dp, role_name="from", stereotype_instances=can_be_realized_with)[0]
-uni_build = \
-    build_deploy_monitor_dp_unified.add_links(build_deploy_monitor_dp, role_name="from", stereotype_instances=can_be_realized_with)[0]
+ci_how = \
+    ci_cd_pipeline.add_links(how_to_automate_building_delivery_and_deployment_of_product_and_platform_components, role_name="from", stereotype_instances=can_use)[0]
+ci_ci = \
+    ci_cd_platform.add_links(ci_cd_pipeline, role_name="from", stereotype_instances=can_use)[0]
+ci_ver = \
+    version_control_system.add_links(ci_cd_pipeline, role_name="from", stereotype_instances=can_use)[0]
+lib_wha = \
+    library.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=can_use)[0]
+cli_wha = \
+    cli.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=can_use)[0]
+ui_wha = \
+    web_ui.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=can_use)[0]
+api_wha = \
+    web_api.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=can_use)[0]
+build_should = \
+    build.add_links(should_a_platform_component_be_built_or_bought, role_name="from", stereotype_instances=can_use)[0]
+buy_should = \
+    buy.add_links(should_a_platform_component_be_built_or_bought, role_name="from", stereotype_instances=can_use)[0]
+pers_work = \
+    personas_first.add_links(how_should_the_features_and_usage_workflows_of_a_platform_component_be_decided, role_name="from", stereotype_instances=can_use)[0]
+tool_work = \
+    tool_first.add_links(how_should_the_features_and_usage_workflows_of_a_platform_component_be_decided, role_name="from", stereotype_instances=can_use)[0]
 
-ci_uni = \
-    ci_cd_process.add_links(build_deploy_monitor_dp_unified, role_name="from", stereotype_instances=uses)[0]
+product_decision = CClass(decision, "Which capabilities should be offered by the data product experience plane?")
+add_decision_option_link(product_decision, build_dp,
+                         "Option")
+add_decision_option_link(product_decision, test_dp,
+                         "Option")
+add_decision_option_link(product_decision, deploy_dp,
+                         "Option")
+add_decision_option_link(product_decision, publish_dp,
+                         "Option")
+add_decision_option_link(product_decision, connect_and_read_dp,
+                         "Option")
+add_decision_option_link(product_decision, monitor_dp,
+                         "Option")
+add_decision_option_link(product_decision, govern_dp,
+                         "Option")
+add_decision_option_link(product_decision, evolve_dp,
+                         "Option")
+add_decision_option_link(product_decision, version_dp,
+                         "Option")
 
-decl_infa = \
-    infrastructure_as_code.add_links(declaratively_create_dp, role_name="from", stereotype_instances=uses)[0]
+dev_build = \
+    how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum.add_links(build_dp, role_name="from", stereotype_instances=can_use)[0]
+dev_test = \
+    how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum.add_links(test_dp, role_name="from", stereotype_instances=can_use)[0]
+dev_dep = \
+    how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum.add_links(deploy_dp, role_name="from", stereotype_instances=can_use)[0]
+connect_make = \
+    how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform.add_links(connect_and_read_dp, role_name="from", stereotype_instances=can_use)[0]
+monitor_make = \
+    how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform.add_links(test_dp, role_name="from", stereotype_instances=can_use)[0]
+enable_connect = \
+    how_to_enable_consumers_to_provide_the_feedback_on_a_product.add_links(connect_and_read_dp, role_name="from", stereotype_instances=can_use)[0]
+evolve_safely = \
+    how_to_safely_change_products_and_notify_changes.add_links(evolve_dp, role_name="from", stereotype_instances=can_use)[0]
+version_safely = \
+    version_dp.add_links(how_to_safely_change_products_and_notify_changes, role_name="from", stereotype_instances=can_use)[0]
+push_not = \
+    push_pull_notfication.add_links(how_to_safely_change_products_and_notify_changes, role_name="from", stereotype_instances=can_use)[0]
+data_enable = \
+    data_product_code_repository.add_links(how_to_enable_consumers_to_provide_the_feedback_on_a_product, role_name="from", stereotype_instances=can_use)[0]
+low_feedback = \
+    low_level_catalog_apis.add_links(how_to_enable_consumers_to_provide_the_feedback_on_a_product, role_name="from", stereotype_instances=can_use)[0]
+data_discover = \
+    data_product_metric.add_links(how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform, role_name="from", stereotype_instances=can_use)[0]
+contract_discover = \
+    data_product_contract.add_links(how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform, role_name="from", stereotype_instances=can_use)[0]
+contract_publish = \
+    data_product_contract.add_links(publish_dp, role_name="from", stereotype_instances=can_use)[0]
+blue_dev = \
+    product_blueprint.add_links(how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum, role_name="from", stereotype_instances=can_use)[0]
+ci_automate = \
+    ci_cd_integration.add_links(how_to_automate_building_and_delivery_of_dps, role_name="from", stereotype_instances=can_use)[0]
+iac_blue = \
+    iac_blueprint.add_links(product_blueprint, role_name="from", stereotype_instances=can_use)[0]
+catalog_template = \
+    data_catalog_template.add_links(product_blueprint, role_name="from", stereotype_instances=can_use)[0]
+low_catalog = \
+    low_level_catalog_apis.add_links(data_catalog_template, role_name="from", stereotype_instances=can_use)[0]
+data_calc = \
+    metric_calculation_pipeline.add_links(data_product_metric, role_name="from", stereotype_instances=can_use)[0]
 
-privacy_secure = \
-    set_privacy_dp.add_links(secure_dp, role_name="from", stereotype_instances=uses)[0]
-devops_secure = \
-    devsecops_pipeline.add_links(secure_dp, role_name="from", stereotype_instances=uses)[0]
-pol_sec = \
-    policy_automation.add_links(secure_dp, role_name="from", stereotype_instances=can_use)[0]
+experience_decision = CClass(decision, "What capabilities should be offered by a data mesh experience plane and how?")
+add_decision_option_link(experience_decision, register_data_products,
+                         "Option")
+add_decision_option_link(experience_decision, search_data_products,
+                         "Option")
+add_decision_option_link(experience_decision, monitor_data_mesh,
+                         "Option")
+add_decision_option_link(experience_decision, govern_data_mesh,
+                         "Option")
 
-incremetnal_test = \
-    incremental.add_links(testing_dp, role_name="from", stereotype_instances=uses)[0]
-full_test = \
-    full_refresh.add_links(testing_dp, role_name="from", stereotype_instances=uses)[0]
+uniform_reg = \
+    how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products.add_links(register_data_products, role_name="from", stereotype_instances=can_use)[0]
+uniform_search = \
+    how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products.add_links(search_data_products, role_name="from", stereotype_instances=can_use)[0]
+mon_dash = \
+    data_mesh_dashboard.add_links(monitor_data_mesh, role_name="from", stereotype_instances=can_use)[0]
+enf_pol = \
+    how_to_enforce_global_policies.add_links(govern_data_mesh, role_name="from", stereotype_instances=can_use)[0]
+enf_gov = \
+    how_to_enforce_data_contracts.add_links(govern_data_mesh, role_name="from", stereotype_instances=can_use)[0]
+aut_pol = \
+    automated.add_links(how_to_enforce_global_policies, role_name="from", stereotype_instances=can_use)[0]
+aut_con = \
+    automated.add_links(how_to_enforce_data_contracts, role_name="from", stereotype_instances=can_use)[0]
+man_pol = \
+    manual_or_semi_automated.add_links(how_to_enforce_global_policies, role_name="from", stereotype_instances=can_use)[0]
+man_con = \
+    manual_or_semi_automated.add_links(how_to_enforce_data_contracts, role_name="from", stereotype_instances=can_use)[0]
+reg_prov = \
+    data_product_registry.add_links(how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products, role_name="from", stereotype_instances=can_use)[0]
+reg_dash = \
+    data_product_registry.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=can_use)[0]
+dash_dash = \
+    what_should_be_displaced_in_the_dashboard.add_links(data_mesh_dashboard, role_name="from", stereotype_instances=can_use)[0]
+access_dash = \
+    data_product_access_history.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=can_use)[0]
+mesh_dash = \
+    data_mesh_graphs.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=can_use)[0]
+alert_dash = \
+    alerts.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=can_use)[0]
+alert_auto = \
+    alerts.add_links(automated, role_name="from", stereotype_instances=can_use)[0]
+high_auto = \
+    high_level_policy_enforcement_api.add_links(automated, role_name="from", stereotype_instances=can_use)[0]
+high_manual = \
+    high_level_policy_enforcement_api.add_links(manual_or_semi_automated, role_name="from", stereotype_instances=can_use)[0]
 
-sql_read = \
-    sql_endpoint.add_links(read_dp, role_name="from", stereotype_instances=can_use)[0]
-inplace_consumption_read = \
-    in_place_consumption.add_links(read_dp, role_name="from", stereotype_instances=can_use)[0]
-
-version_ability = \
-    restore_data_without_backups.add_links(version_dp, role_name="from", stereotype_instances=enables)[0]
-
-mesh_decision = CClass(decision, "What capabilities are accessible more conveniently on a Data Mesh Supervision Plane?")
-add_decision_option_link(mesh_decision, schema_registry,
-                         "Keep track of the different schemas")
-add_decision_option_link(mesh_decision, api_catalog,
-                         "Keep track of the different APIs")
-add_decision_option_link(mesh_decision, data_observability,
-                         "Monitor your data")
-add_decision_option_link(mesh_decision, metadata_management,
-                         "Focus on metadata management")
-add_force_relations({schema_registry: {automation: positive,
-                                       interoperability: positive,
-                                       delegated_ownership: positive,
-                                       complexity: negative,
-                                       maintenance_needs: negative},
-                     api_catalog: {searchability: positive,
-                                   discoverability: positive,
-                                   usability: very_positive,
-                                   maintenance_needs: negative,
-                                   resource_deployment_process: negative},
-                     data_observability: {data_quality: very_positive,
-                                          freshness: positive,
-                                          accuracy: positive,
-                                          transparency: very_positive,
-                                          maintenance_needs: negative,
-                                          time_to_value: negative},
-                     metadata_management: {ad_hoc_exploration: very_positive,
-                                           discoverability: very_positive,
-                                           searchability: very_positive,
-                                           accessibility: positive,
-                                           delegated_ownership: positive,
-                                           feature_engineering: positive,
-                                           maintenance_needs: negative}
-                     })
-
-schem_api = \
-    provide_standard_api_for_data_product_owners_to_get_schema_from.add_links(schema_registry, role_name="from", stereotype_instances=uses)[0]
-
-met_dat = \
-    data_catalog.add_links(metadata_management, role_name="from", stereotype_instances=uses)[0]
-manage_know = \
-    knowledge_graph.add_links(metadata_management, role_name="from", stereotype_instances=uses)[0]
-know_manage = \
-    manage_emergent_graphs_of_dps.add_links(knowledge_graph, role_name="from", stereotype_instances=uses)[0]
-manage_dat = \
-    manage_emergent_graphs_of_dps.add_links(data_catalog, role_name="from", stereotype_instances=uses)[0]
-discover_cat = \
-    discovery_and_explore_dps.add_links(data_catalog, role_name="from", stereotype_instances=uses)[0]
-business_cat = \
-    business_glossary.add_links(data_catalog, role_name="from", stereotype_instances=uses)[0]
-
-quality_ob = \
-    data_quality_management.add_links(data_observability, role_name="from", stereotype_instances=can_use)[0]
-obser_alert = \
-    alerting.add_links(data_observability, role_name="from", stereotype_instances=can_use)[0]
-obser_log = \
-    log_management.add_links(data_observability, role_name="from", stereotype_instances=can_use)[0]
-
-# ** self_serve_decision **
-
-self_serve_decision = CClass(decision, "What elements should be included in the user interface (UI) of a self-serve platform?")
-add_decision_option_link(self_serve_decision, cataloging_function,
-                         "Provide a cataloging function")
-add_decision_option_link(self_serve_decision, data_transformation_function,
-                         "Provide a pipeline building function")
-add_decision_option_link(self_serve_decision, role_based_access_control,
-                         "Functionalities showed to the users are based on its role")
-add_decision_option_link(self_serve_decision, data_governance_function,
-                         "Provide a data governance function")
-add_decision_option_link(self_serve_decision, application_build_function,
-                         "Provide an application build function")
-add_decision_option_link(self_serve_decision, query_recommendation_function,
-                         "Provide a query recommendation function")
-add_force_relations({cataloging_function: {discoverability: very_positive,
-                                       searchability: very_positive,
-                                       usability: positive,
-                                       understandability: positive,
-                                       duplication: positive,
-                                       resource_deployment_process: negative,
-                                       complexity: negative,
-                                       maintenance_needs: negative},
-                     data_transformation_function: {flexibility: very_positive,
-                                                    feature_engineering: positive,
-                                                    inconsistencies_between_deployed_resources_and_declared_code_in_source_control: negative,
-                                                    maintenance_needs: negative},
-                     role_based_access_control: {delegated_ownership: positive,
-                                                 control_over_data: positive,
-                                                 accessibility: positive,
-                                                 transparency: very_positive,
-                                                 security: positive,
-                                                 agility: negative,
-                                                 efficiency: negative},
-                     data_governance_function: {transparency: positive,
-                                                security: very_positive,
-                                                control_over_data: very_positive,
-                                                global_governance: positive,
-                                                decentralization: negative,
-                                                flexibility: negative},
-                     application_build_function: {automation: positive,
-                                                  agility: positive,
-                                                  time_to_value: positive,
-                                                  complexity: negative,
-                                                  global_governance: negative},
-                     query_recommendation_function: {searchability: positive,
-                                                     discoverability: positive,
-                                                     ad_hoc_exploration: positive,
-                                                     usability: very_positive,
-                                                     flexibility: negative,
-                                                     transparency: negative}
-                     })
-profile_catalog = \
-    data_profiling.add_links(cataloging_function, role_name="from", stereotype_instances=enables)[0]
-lineage_catalog = \
-    data_lineage.add_links(cataloging_function, role_name="from", stereotype_instances=enables)[0]
-
-pipe_trans = \
-    building_pipeline_function.add_links(data_transformation_function, role_name="from", stereotype_instances=enables)[0]
-line_trans = \
-    data_lineage.add_links(data_transformation_function, role_name="from", stereotype_instances=enables)[0]
-
-sec_gov = \
-    data_security.add_links(data_governance_function, role_name="from", stereotype_instances=enables)[0]
-col_gov = \
-    collaboration_function.add_links(data_governance_function, role_name="from", stereotype_instances=can_be_realized_with)[0]
-access_gov = \
-    visualize_access.add_links(data_governance_function, role_name="from", stereotype_instances=enables)[0]
-vis_schem = \
-    visualize_schemas_contracts.add_links(data_governance_function, role_name="from", stereotype_instances=enables)[0]
-alert_monitor = \
-    alerting_and_monitoring.add_links(data_governance_function, role_name="from", stereotype_instances=enables)[0]
-
-# ** mapping_decision **
-
-mapping_decision = CClass(decision, " How to align a self-serve platform and its components with data mesh?")
-add_decision_option_link(mapping_decision, single_data_landing_zone,
-                         "Use a single infrastructure provisioning plane")
-add_decision_option_link(mapping_decision, multiple_data_landing_zones,
-                         "Use source system- and consumer-aligned infrastructure provisioning planes")
-add_decision_option_link(mapping_decision, hub_generic_special_data_landing_zones,
-                         "Use hub-, generic-, special infrastructure provisioning plane")
-add_decision_option_link(mapping_decision, functional_and_regionally_aligned_data_landing_zones,
-                         "Use functional and regionally aligned infrastructure provisioning plane")
-add_decision_option_link(mapping_decision, large_scale_enterprise,
-                         "Use different data mesh supervision planes")
-add_force_relations({multiple_data_landing_zones: {automation: positive,
-                                                   resource_deployment_process: positive,
-                                                   efficiency: positive,
-                                                   agility: positive,
-                                                   latency: negative,
-                                                   freshness: negative},
-                     hub_generic_special_data_landing_zones: {agility: positive,
-                                                              flexibility: positive,
-                                                              adapt_to_changing_volumes: positive,
-                                                              autonomous: positive,
-                                                              interoperability: negative,
-                                                              avoids_information_island: negative,
-                                                              discoverability: negative},
-                     functional_and_regionally_aligned_data_landing_zones: {federated_analytics: positive,
-                                                                            flexibility: positive,
-                                                                            delegated_ownership: negative,
-                                                                            agility: negative},
-                     large_scale_enterprise: {scalability: positive,
-                                              decentralization: positive,
-                                              global_governance: positive,
-                                              delegated_ownership: positive,
-                                              agility: negative,
-                                              time_to_value: negative}
-                     })
-
-multiple_persona = \
-    persona_to_tool_approach.add_links(multiple_data_landing_zones, role_name="from", stereotype_instances=can_be_realized_with)[0]
-
-cdc_multiple = \
-    cdc.add_links(multiple_data_landing_zones, role_name="from", stereotype_instances=uses)[0]
-data_lake_multiple = \
-    data_lake_services.add_links(multiple_data_landing_zones, role_name="from", stereotype_instances=uses)[0]
-ml_multiple = \
-    ml_services.add_links(multiple_data_landing_zones, role_name="from", stereotype_instances=uses)[0]
-reporting_multiple = \
-    reporting_services.add_links(multiple_data_landing_zones, role_name="from", stereotype_instances=uses)[0]
-
-governed_hub = \
-    governed_mesh_topology.add_links(hub_generic_special_data_landing_zones, role_name="from", stereotype_instances=uses)[0]
-
-private_func = \
-    private_endpoints.add_links(functional_and_regionally_aligned_data_landing_zones, role_name="from", stereotype_instances=uses)[0]
-VNet_funct = \
-    VNetPeering.add_links(functional_and_regionally_aligned_data_landing_zones, role_name="from", stereotype_instances=uses)[0]
 
 # decision links
-add_links({mesh_decision: [self_serve_decision],
-           infra_provision_decision: [self_serve_decision],
-           data_product_developer_decision: [self_serve_decision],
-           self_serve_decision: [mapping_decision]},
+add_links({infra_decision: [gov_decision],
+           gov_decision: [dep_decision],
+           dep_decision: [cross_decision],
+           cross_decision: [product_decision],
+           product_decision: [experience_decision]},
           role_name="next decision", stereotype_instances=consider_if_not_decided_yet)
 
 # decision views
 forces_class_objects = [f.class_object for f in force.all_classes]
 
-_all = CBundle("_all", elements=infra_provision_decision.class_object.get_connected_elements())
+_all = CBundle("_all", elements=infra_decision.class_object.get_connected_elements())
 inter_decision_links_view = CBundle("inter_decision_links",
-                                    elements=[mapping_decision, infra_provision_decision, data_product_developer_decision, mesh_decision, self_serve_decision])
+                                    elements=[infra_decision, gov_decision, dep_decision, cross_decision, product_decision, experience_decision])
 
-infra_provision_decision_view = CBundle("infra_provision_decision",
-                                    elements=infra_provision_decision.class_object.get_connected_elements(
+infra_decision_view = CBundle("infra_decision",
+                                    elements=infra_decision.class_object.get_connected_elements(
                                         stop_elements_exclusive=forces_class_objects + [
-                                            mapping_decision.class_object,
-                                            data_product_developer_decision.class_object,
-                                            mesh_decision.class_object,
-                                            self_serve_decision.class_object,
+                                           gov_decision.class_object,
+                                            dep_decision.class_object,
+                                            cross_decision.class_object,
+                                            product_decision.class_object,
+                                            experience_decision.class_object
                                         ]))
 
-data_product_developer_decision_view = CBundle("data_product_developer_decision",
-                                    elements=data_product_developer_decision.class_object.get_connected_elements(
+gov_decision_view = CBundle("gov_decision",
+                                    elements=gov_decision.class_object.get_connected_elements(
                                         stop_elements_exclusive=forces_class_objects + [
-                                            mapping_decision.class_object,
-                                            infra_provision_decision.class_object,
-                                            mesh_decision.class_object,
-                                            self_serve_decision.class_object,
+                                           infra_decision.class_object,
+                                            dep_decision.class_object,
+                                            cross_decision.class_object,
+                                            product_decision.class_object,
+                                            experience_decision.class_object
                                         ]))
 
-mesh_decision_view = CBundle("mesh_decision",
-                                    elements=mesh_decision.class_object.get_connected_elements(
+dep_decision_view = CBundle("dep_decision",
+                                    elements=dep_decision.class_object.get_connected_elements(
                                         stop_elements_exclusive=forces_class_objects + [
-                                            mapping_decision.class_object,
-                                            infra_provision_decision.class_object,
-                                            data_product_developer_decision.class_object,
-                                            self_serve_decision.class_object
+                                            infra_decision.class_object,
+                                            gov_decision.class_object,
+                                            cross_decision.class_object,
+                                            product_decision.class_object,
+                                            experience_decision.class_object
                                         ]))
 
-self_serve_decision_view = CBundle("self_serve_decision",
-                                    elements=self_serve_decision.class_object.get_connected_elements(
+cross_decision_view = CBundle("cross_decision",
+                                    elements=cross_decision.class_object.get_connected_elements(
                                         stop_elements_exclusive=forces_class_objects + [
-                                            mapping_decision.class_object,
-                                            infra_provision_decision.class_object,
-                                            data_product_developer_decision.class_object,
-                                            mesh_decision.class_object
+                                            infra_decision.class_object,
+                                            gov_decision.class_object,
+                                            dep_decision.class_object,
+                                            product_decision.class_object,
+                                            experience_decision.class_object
                                         ]))
 
-mapping_decision_view = CBundle("mapping_decision",
-                                    elements=mapping_decision.class_object.get_connected_elements(
+product_decision_view = CBundle("product_decision",
+                                    elements=product_decision.class_object.get_connected_elements(
                                         stop_elements_exclusive=forces_class_objects + [
-                                            infra_provision_decision.class_object,
-                                            data_product_developer_decision.class_object,
-                                            mesh_decision.class_object,
-                                            self_serve_decision.class_object,
+                                            infra_decision.class_object,
+                                            gov_decision.class_object,
+                                            dep_decision.class_object,
+                                            cross_decision.class_object,
+                                            experience_decision.class_object
+                                        ]))
+
+experience_decision_view = CBundle("experience_decision",
+                                    elements=experience_decision.class_object.get_connected_elements(
+                                        stop_elements_exclusive=forces_class_objects + [
+                                            infra_decision.class_object,
+                                            gov_decision.class_object,
+                                            dep_decision.class_object,
+                                            cross_decision.class_object,
+                                            product_decision.class_object
                                         ]))
 
 
 self_serve_platform_views = [
     _all, {},
     inter_decision_links_view, {},
-    infra_provision_decision_view, {},
-    data_product_developer_decision_view, {},
-    mesh_decision_view, {},
-    mapping_decision_view, {},
-    self_serve_decision_view, {}
+    infra_decision_view, {},
+    gov_decision_view, {},
+    dep_decision_view, {},
+    cross_decision_view, {},
+    product_decision_view, {},
+     experience_decision_view, {}
 ]
 
 

@@ -1,6 +1,6 @@
 from self_serve_platform_models.self_serve_platform_model import *
 from codeable_models import CClass, add_links
-from metamodels.GT_coding import code, source
+from self_serve_platform_codeablemodels.generators.metamodels.GT_coding import code, source
 from metamodels.domain_metamodel import domain_metaclass
 from metamodels.guidance_metamodel import decision, design_solution, force, design_solution_dependencies
 
