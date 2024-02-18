@@ -1,0 +1,52 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "Which capabilities should be offered by the data\ninfrastructure plane for various governance functions\nat the product level and mesh level and how?\n : Decision" as __1_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_
+class "Cataloging Product Assets : Pattern" as __2_Cataloging_Product_Assets
+class "How to catalog various assets? : Decision" as __3_How_to_catalog_various_assets_
+class "API Catalog : Pattern" as __4_API_Catalog
+class "Data Catalog : Pattern" as __5_Data_Catalog
+class "Model Store  : Pattern" as __6_Model_Store_
+class "How to publish assets information? : Decision" as __7_How_to_publish_assets_information_
+class "Pull Model : Pattern" as __8_Pull_Model
+class "How to propagate the changes to the status of\nassets?\n : Decision" as __9_How_to_propagate_the_changes_to_the_status_of_assets_
+class "Push Model : Pattern" as __10_Push_Model
+class "Defining and Enforcing of Governance Policies\n : Practice" as __11_Defining_and_Enforcing_of_Governance_Policies
+class "Policy-as-Code : Pattern" as __12_Policy_as_Code
+class "Authoring Tools : Pattern" as __13_Authoring_Tools
+class "Policy Engines : Pattern" as __14_Policy_Engines
+class "Data Quality Checkers : Pattern" as __15_Data_Quality_Checkers
+class "Access and Identity Manager : Pattern" as __16_Access_and_Identity_Manager
+class "Privacy-Enhancing Technologies (PET)\n : Pattern" as __17_Privacy_Enhancing_Technologies__PET_
+class "Monitoring Infrastructure Resources, Product Components\nand Assets\n : Practice" as __18_Monitoring_Infrastructure_Resources__Product_Components_and_Assets
+class "Alert Generation : Practice" as __19_Alert_Generation
+class "Log Management : Practice" as __20_Log_Management
+class "Resource Usage and Cost Management : Practice" as __21_Resource_Usage_and_Cost_Management
+__1_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_ --> __2_Cataloging_Product_Assets: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_ --> __11_Defining_and_Enforcing_of_Governance_Policies: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_ --> __18_Monitoring_Infrastructure_Resources__Product_Components_and_Assets: "«Option» \n{name = "Option"}\n" 
+__2_Cataloging_Product_Assets --> __3_How_to_catalog_various_assets_: "«Consider if not Decided» \n" 
+__2_Cataloging_Product_Assets --> __7_How_to_publish_assets_information_: "«Consider if not Decided» \n" 
+__2_Cataloging_Product_Assets --> __9_How_to_propagate_the_changes_to_the_status_of_assets_: "«Consider if not Decided» \n" 
+__3_How_to_catalog_various_assets_ --> __4_API_Catalog: "«Option» \n" 
+__3_How_to_catalog_various_assets_ --> __5_Data_Catalog: "«Option» \n" 
+__3_How_to_catalog_various_assets_ --> __6_Model_Store_: "«Option» \n" 
+__7_How_to_publish_assets_information_ --> __8_Pull_Model: "«Option» \n" 
+__7_How_to_publish_assets_information_ --> __10_Push_Model: "«Option» \n" 
+__9_How_to_propagate_the_changes_to_the_status_of_assets_ --> __8_Pull_Model: "«Option» \n" 
+__9_How_to_propagate_the_changes_to_the_status_of_assets_ --> __10_Push_Model: "«Option» \n" 
+__11_Defining_and_Enforcing_of_Governance_Policies --> __12_Policy_as_Code: "«Option» \n" 
+__12_Policy_as_Code --> __13_Authoring_Tools: "«Requires» \n" 
+__12_Policy_as_Code --> __14_Policy_Engines: "«Requires» \n" 
+__12_Policy_as_Code --> __15_Data_Quality_Checkers: "«Can Be Combined With» \n" 
+__12_Policy_as_Code --> __16_Access_and_Identity_Manager: "«Can Be Combined With» \n" 
+__12_Policy_as_Code --> __17_Privacy_Enhancing_Technologies__PET_: "«Can Be Combined With» \n" 
+__18_Monitoring_Infrastructure_Resources__Product_Components_and_Assets --> __19_Alert_Generation: "«Option» \n" 
+__18_Monitoring_Infrastructure_Resources__Product_Components_and_Assets --> __20_Log_Management: "«Option» \n" 
+__18_Monitoring_Infrastructure_Resources__Product_Components_and_Assets --> __21_Resource_Usage_and_Cost_Management: "«Option» \n" 
+@enduml

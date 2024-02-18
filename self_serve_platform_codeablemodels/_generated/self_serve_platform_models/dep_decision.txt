@@ -1,0 +1,44 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "Which capabilities should be offered by the infrastructure\nutility plane for deploying products, and how?\n : Decision" as __1_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_
+class "What deployment options should be supported?\n : Decision" as __2_What_deployment_options_should_be_supported_
+class "Networking : Pattern" as __3_Networking
+class "Compute : Pattern" as __4_Compute
+class "Containers : Pattern" as __5_Containers
+class "Container Orchestrators : Pattern" as __6_Container_Orchestrators
+class "Container Registry : Pattern" as __7_Container_Registry
+class "VMs : Pattern" as __8_VMs
+class "FaaS : Pattern" as __9_FaaS
+class "FaaS Orchestrators : Pattern" as __10_FaaS_Orchestrators
+class "How should resources be provisioned and managed?\n : Decision" as __11_How_should_resources_be_provisioned_and_managed_
+class "Build Scripts and UI : Practice" as __12_Build_Scripts_and_UI
+class "Auto-scaling : Pattern" as __13_Auto_scaling
+class "IaC : Pattern" as __14_IaC
+class "IaC based Orchestrators : Pattern" as __15_IaC_based_Orchestrators
+class "How should resources be shared among domain terms\nwhile ensuring workload isolation?\n : Decision" as __16_How_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation_
+class "VPC : Pattern" as __17_VPC
+class "Multi-tenancy : Pattern" as __18_Multi_tenancy
+__1_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_ --> __2_What_deployment_options_should_be_supported_: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_ --> __11_How_should_resources_be_provisioned_and_managed_: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_ --> __16_How_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation_: "«Option» \n{name = "Option"}\n" 
+__2_What_deployment_options_should_be_supported_ --> __3_Networking: "«Option» \n" 
+__2_What_deployment_options_should_be_supported_ --> __4_Compute: "«Option» \n" 
+__4_Compute --> __5_Containers: "«Option» \n" 
+__4_Compute --> __8_VMs: "«Option» \n" 
+__4_Compute --> __9_FaaS: "«Option» \n" 
+__5_Containers --> __6_Container_Orchestrators: "«Requires» \n" 
+__5_Containers --> __7_Container_Registry: "«Requires» \n" 
+__9_FaaS --> __10_FaaS_Orchestrators: "«Requires» \n" 
+__11_How_should_resources_be_provisioned_and_managed_ --> __12_Build_Scripts_and_UI: "«Option» \n" 
+__11_How_should_resources_be_provisioned_and_managed_ --> __13_Auto_scaling: "«Option» \n" 
+__11_How_should_resources_be_provisioned_and_managed_ --> __14_IaC: "«Option» \n" 
+__14_IaC --> __15_IaC_based_Orchestrators: "«Requires» \n" 
+__16_How_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation_ --> __17_VPC: "«Option» \n" 
+__16_How_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation_ --> __18_Multi_tenancy: "«Option» \n" 
+@enduml

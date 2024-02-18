@@ -1,8 +1,8 @@
 from codeable_models import CClass, add_links, CBundle
 from metamodels.guidance_metamodel import do_nothing_design_solution, decision, practice, add_decision_option_link, \
-    add_stereotyped_link_with_how_tagged_value, force, negative, uses, positive, can_be_realized_with, extension, \
-    consider_if_not_decided_yet, decide_for_some_instances_of, pattern, decide_for_all_instances_of, \
-    very_negative, neutral, very_positive, can_use, enables, variant, is_a, includes, leads_to, realizes
+    add_stereotyped_link_with_how_tagged_value, force, negative, uses, positive, can_be_realized_with, extension, can_be_combined_with, \
+    consider_if_not_decided_yet, decide_for_some_instances_of, pattern, decide_for_all_instances_of, requires,\
+    very_negative, neutral, very_positive, can_use, enables, variant, is_a, includes, leads_to, realizes, option2, consider_if_not_decided
 
 
 def add_force_relations(force_relations_definition):
@@ -15,12 +15,13 @@ def add_force_relations(force_relations_definition):
 # patterns
 federated_query_engine = CClass(pattern, "Federated Query Engine")
 stream_batch_data_connectors = CClass(pattern, "Stream/Batch Data Connectors") 
-batch_stream_data_processors = CClass(pattern, "Batch Stream Data Processors")
+batch_stream_data_processors = CClass(pattern, "Batch/Stream Data Processors")
 bi_tools = CClass(pattern, "BI Tools")
-polygot_data_storage = CClass(pattern, "Polygot DAta Storage")
+polygot_data_storage = CClass(pattern, "Polygot Data Storage")
 event_stream_platform = CClass(pattern, "Event Stream Platform")
 schema_registry = CClass(pattern, "Schema Registry")
 model_store = CClass(pattern, "Model Store")
+model_store2 = CClass(pattern, "Model Store ")
 metadata_store = CClass(practice, "Metadata Store")
 bi_tool_connectors = CClass(pattern, "BI Tool Connectors")
 legacy_and_operational_system_connectors = CClass(pattern, 'Legacy and Operational System Connectors')
@@ -81,26 +82,13 @@ sending_data_to_various_sinks = CClass(practice, 'Sending Data to Various Sinks'
 transforming_data = CClass(practice, 'Transforming Data')
 storing_various_data = CClass(practice, "Storing Various Data")
 storing_other_various_assets = CClass(practice, "Storing Other Various Assets")
-how_to_support_orchestration_of_complex_data_transformations = CClass(practice, "ADD 1.1: How to support orchestration of complex data transformations?")
-how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations = CClass(practice, "ADD 1.2: How to support generalists as well data engineers in product teams in writing data transformations?")
-how_to_support_customization_and_reuse_of_pipelines = CClass(practice, "ADD 1.3: How to support customization and reuse of pipelines?")
 pipeline_templates = CClass(practice, 'Pipeline Templates')
 monitoring_infrastructure_resources = CClass(practice, 'Monitoring Infrastructure Resources, Product Components and Assets')
 defining_and_enforcing_of_governance_policies = CClass(practice, 'Defining and Enforcing of Governance Policies')
 resource_usage_and_cost_management = CClass(practice, 'Resource Usage and Cost Management')
 alert_generation = CClass(practice, 'Alert Generation')
 log_management = CClass(practice, 'Log Management')
-how_to_publish_assets_information = CClass(practice, 'How to publish assets information?')
-how_to_catalog_various_assets = CClass(practice, 'How to catalog various assets?')
-how_to_propagate_the_changes_to_the_status_of_assets = CClass(practice, 'How to propagate the changes to the status of assets?')
-what_deployment_options_should_be_supported = CClass(practice, "What deployment options should be supported?")
-how_should_resources_be_provisioned_and_managed = CClass(practice, 'How should resources be provisioned and managed?')
-how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation = CClass(practice, 'How should resources be shared among domain terms while ensuring workload isolation?')
 build_scripts_and_ui = CClass(practice, 'Build Scripts and UI')
-how_to_automate_building_delivery_and_deployment_of_product_and_platform_components = CClass(practice, 'How to automate building, delivery, and deployment of product and platform components?')
-what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane = CClass(practice, 'What should be the form of the APIs of the infrastructure utility plane?')
-should_a_platform_component_be_built_or_bought = CClass(practice, 'Should a component be built or bought?')
-how_should_the_features_and_usage_workflows_of_a_platform_component_be_decided = CClass(practice, 'How should the features and usage workflows of a platform component be decided?')
 build_dp = CClass(practice, 'Build DP')
 test_dp = CClass(practice, 'Test DP')
 deploy_dp = CClass(practice, 'Deploy DP')
@@ -110,11 +98,6 @@ monitor_dp = CClass(practice, 'Monitor DP')
 govern_dp = CClass(practice, 'Govern DP')
 evolve_dp = CClass(practice, 'Evolve DP')
 version_dp = CClass(practice, 'Version DP')
-how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum = CClass(practice, 'How to enable developers to correctly assemble all code units and treat them as a single architectural quantum?')
-how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform = CClass(practice, 'How to make the experience of discovering detailed information of a product uniform?')
-how_to_enable_consumers_to_provide_the_feedback_on_a_product = CClass(practice, 'How to enable comnsumers to provide the feedback on a product?')
-how_to_safely_change_products_and_notify_changes = CClass(practice, 'How to safely change products and how to notify changes?')
-how_to_automate_building_and_delivery_of_dps = CClass(practice, 'How to automate building and delivery of DPs?')
 product_blueprint = CClass(practice, 'Product Blueprint')
 personas_first = CClass(practice, 'Personas-first')
 tool_first = CClass(practice, 'Tool-first')
@@ -128,15 +111,35 @@ register_data_products = CClass(practice, 'Register Data Products')
 search_data_products = CClass(practice, 'Search Data Products')
 monitor_data_mesh = CClass(practice, 'Monitor Data Mesh')
 govern_data_mesh = CClass(practice, 'Govern Data Mesh')
-how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products = CClass(practice, 'How to provide a uniform experience for registering and browsing data products?')
 data_mesh_dashboard = CClass(practice, 'Data Mesh Dashboard')
-how_to_enforce_global_policies = CClass(practice, 'How to enforce global policies?')
-how_to_enforce_data_contracts = CClass(practice, 'How to enforce data contracts?')
 data_product_registry = CClass(practice, 'Data Product Registry')
-what_should_be_displaced_in_the_dashboard = CClass(practice, 'What should be displaced in the dashboard?')
 automated = CClass(practice, 'Automated')
 manual_or_semi_automated = CClass(practice, 'Manual or Semi-Automated')
 data_product_access_history = CClass(practice, 'Data Product Access History')
+
+# Sub-decisions
+how_to_support_orchestration_of_complex_data_transformations = CClass(decision, "How to support orchestration of complex data transformations?")
+how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations = CClass(decision, "How to support generalists as well data engineers in product teams in writing data transformations?")
+how_to_support_customization_and_reuse_of_pipelines = CClass(decision, "How to support customization and reuse of pipelines?")
+how_to_publish_assets_information = CClass(decision, 'How to publish assets information?')
+how_to_catalog_various_assets = CClass(decision, 'How to catalog various assets?')
+how_to_propagate_the_changes_to_the_status_of_assets = CClass(decision, 'How to propagate the changes to the status of assets?')
+what_deployment_options_should_be_supported = CClass(decision, "What deployment options should be supported?")
+how_should_resources_be_provisioned_and_managed = CClass(decision, 'How should resources be provisioned and managed?')
+how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation = CClass(decision, 'How should resources be shared among domain terms while ensuring workload isolation?')
+how_to_automate_building_delivery_and_deployment_of_product_and_platform_components = CClass(decision, 'How to automate building, delivery, and deployment of product and platform components?')
+what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane = CClass(decision, 'What should be the form of the APIs of the infrastructure utility plane?')
+should_a_platform_component_be_built_or_bought = CClass(decision, 'Should a component be built or bought?')
+how_should_the_features_and_usage_workflows_of_a_platform_component_be_decided = CClass(decision, 'How should the features and usage workflows of a platform component be decided?')
+how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products = CClass(decision, 'How to provide a uniform experience for registering and browsing data products?')
+how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum = CClass(decision, 'How to enable developers to correctly assemble all code units and treat them as a single architectural quantum?')
+how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform = CClass(decision, 'How to make the experience of discovering detailed information of a product uniform?')
+how_to_enable_consumers_to_provide_the_feedback_on_a_product = CClass(decision, 'How to enable comnsumers to provide the feedback on a product?')
+how_to_safely_change_products_and_notify_changes = CClass(decision, 'How to safely change products and how to notify changes?')
+how_to_automate_building_and_delivery_of_dps = CClass(decision, 'How to automate building and delivery of DPs?')
+how_to_enforce_global_policies = CClass(decision, 'How to enforce global policies?')
+how_to_enforce_data_contracts = CClass(decision, 'How to enforce data contracts?')
+what_should_be_displaced_in_the_dashboard = CClass(decision, 'What should be displaced in the dashboard?')
 
 # decisions, options, and contexts
 
@@ -153,62 +156,64 @@ add_decision_option_link(infra_decision, storing_other_various_assets,
                          "Option")
 
 ing_fed = \
-    federated_query_engine.add_links(ingesting_data_from_various_sources, role_name="from", stereotype_instances=can_use)[0]
+    federated_query_engine.add_links(ingesting_data_from_various_sources, role_name="from", stereotype_instances=option2)[0]
 ing_stream = \
-    stream_batch_data_connectors.add_links(ingesting_data_from_various_sources, role_name="from", stereotype_instances=can_use)[0]
+    stream_batch_data_connectors.add_links(ingesting_data_from_various_sources, role_name="from", stereotype_instances=option2)[0]
 
 send_stream = \
-    stream_batch_data_connectors.add_links(sending_data_to_various_sinks, role_name="from", stereotype_instances=can_use)[0]
+    stream_batch_data_connectors.add_links(sending_data_to_various_sinks, role_name="from", stereotype_instances=option2)[0]
 trans_batch = \
-    batch_stream_data_processors.add_links(transforming_data, role_name="from", stereotype_instances=can_use)[0]
+    batch_stream_data_processors.add_links(transforming_data, role_name="from", stereotype_instances=option2)[0]
 support_trans = \
-    how_to_support_orchestration_of_complex_data_transformations.add_links(transforming_data, role_name="from", stereotype_instances=can_use)[0]
+    how_to_support_orchestration_of_complex_data_transformations.add_links(transforming_data, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 trans_bi = \
-    bi_tools.add_links(transforming_data, role_name="from", stereotype_instances=can_use)[0]
+    bi_tools.add_links(transforming_data, role_name="from", stereotype_instances=option2)[0]
 trans_eng = \
-    how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations.add_links(transforming_data, role_name="from", stereotype_instances=can_use)[0]
+    how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations.add_links(transforming_data, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 pol_store = \
-    polygot_data_storage.add_links(storing_various_data, role_name="from", stereotype_instances=can_use)[0]
+    polygot_data_storage.add_links(storing_various_data, role_name="from", stereotype_instances=option2)[0]
 even_plat = \
-    event_stream_platform.add_links(storing_various_data, role_name="from", stereotype_instances=can_use)[0]
+    event_stream_platform.add_links(storing_various_data, role_name="from", stereotype_instances=option2)[0]
 store_reg = \
-    schema_registry.add_links(storing_other_various_assets, role_name="from", stereotype_instances=uses)[0]
+    schema_registry.add_links(storing_other_various_assets, role_name="from", stereotype_instances=option2)[0]
 store_model = \
-    model_store.add_links(storing_other_various_assets, role_name="from", stereotype_instances=can_use)[0]
+    model_store.add_links(storing_other_various_assets, role_name="from", stereotype_instances=option2)[0]
 store_meta = \
-    metadata_store.add_links(storing_other_various_assets, role_name="from", stereotype_instances=uses)[0]
+    metadata_store.add_links(storing_other_various_assets, role_name="from", stereotype_instances=option2)[0]
 leg_stream = \
-    legacy_and_operational_system_connectors.add_links(stream_batch_data_connectors, role_name="from", stereotype_instances=uses)[0]
+    legacy_and_operational_system_connectors.add_links(stream_batch_data_connectors, role_name="from", stereotype_instances=option2)[0]
 bi_stream = \
-    bi_tool_connectors.add_links(stream_batch_data_connectors, role_name="from", stereotype_instances=uses)[0]
+    bi_tool_connectors.add_links(stream_batch_data_connectors, role_name="from", stereotype_instances=includes)[0]
 orches_pipe = \
     pipeline_workflow.add_links(how_to_support_orchestration_of_complex_data_transformations, role_name="from", stereotype_instances=uses)[0]
 pipe_pipe = \
-    pipeline_orchestrator.add_links(pipeline_workflow, role_name="from", stereotype_instances=uses)[0]
+    pipeline_orchestrator.add_links(pipeline_workflow, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 pipe_conn = \
-    connector_repository.add_links(pipeline_connectors, role_name="from", stereotype_instances=uses)[0]
+    connector_repository.add_links(pipeline_connectors, role_name="from", stereotype_instances=requires)[0]
+stream_con = \
+    connector_repository.add_links(stream_batch_data_connectors, role_name="from", stereotype_instances=requires)[0]
 pipe_cuss = \
-    pipeline_connectors.add_links(how_to_support_customization_and_reuse_of_pipelines, role_name="from", stereotype_instances=uses)[0]
+    pipeline_connectors.add_links(how_to_support_customization_and_reuse_of_pipelines, role_name="from", stereotype_instances=option2)[0]
 pipe_temp = \
-    pipeline_templates.add_links(how_to_support_customization_and_reuse_of_pipelines, role_name="from", stereotype_instances=uses)[0]
+    pipeline_templates.add_links(how_to_support_customization_and_reuse_of_pipelines, role_name="from", stereotype_instances=option2)[0]
 data_pipe = \
-    data_pipeline.add_links(pipeline_workflow, role_name="from", stereotype_instances=uses)[0]
+    data_pipeline.add_links(pipeline_workflow, role_name="from", stereotype_instances=includes)[0]
 ml_data = \
-    data_pipeline.add_links(ml_pipeline, role_name="from", stereotype_instances=uses)[0]
+    data_pipeline.add_links(ml_pipeline, role_name="from", stereotype_instances=can_be_combined_with)[0]
 work_ml = \
-    ml_pipeline.add_links(pipeline_workflow, role_name="from", stereotype_instances=uses)[0]
+    ml_pipeline.add_links(pipeline_workflow, role_name="from", stereotype_instances=includes)[0]
 temp_pipe = \
-    pipeline_templates.add_links(pipeline_workflow, role_name="from", stereotype_instances=uses)[0]
+    pipeline_templates.add_links(pipeline_workflow, role_name="from", stereotype_instances=can_use)[0]
 temp_cus = \
-    how_to_support_customization_and_reuse_of_pipelines.add_links(pipeline_workflow, role_name="from", stereotype_instances=uses)[0]
+    how_to_support_customization_and_reuse_of_pipelines.add_links(pipeline_workflow, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 ext_sup = \
-    external_dsl.add_links(how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations, role_name="from", stereotype_instances=uses)[0]
+    external_dsl.add_links(how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations, role_name="from", stereotype_instances=option2)[0]
 emb_sup = \
-    embedded_dsl.add_links(how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations, role_name="from", stereotype_instances=uses)[0]
+    embedded_dsl.add_links(how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations, role_name="from", stereotype_instances=option2)[0]
 low_gen = \
-    low_no_code_programming_model.add_links(how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations, role_name="from", stereotype_instances=uses)[0]
+    low_no_code_programming_model.add_links(how_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations, role_name="from", stereotype_instances=option2)[0]
 low_gen = \
-    template_repository.add_links(pipeline_templates, role_name="from", stereotype_instances=uses)[0]
+    template_repository.add_links(pipeline_templates, role_name="from", stereotype_instances=requires)[0]
 
 gov_decision = CClass(decision, "Which capabilities should be offered by the data infrastructure plane for various governance functions at the product level and mesh level and how?")
 add_decision_option_link(gov_decision, cataloging_product_assets,
@@ -219,43 +224,43 @@ add_decision_option_link(gov_decision, monitoring_infrastructure_resources,
                          "Option")
 
 how_cat = \
-    how_to_catalog_various_assets.add_links(cataloging_product_assets, role_name="from", stereotype_instances=can_use)[0]
+    how_to_catalog_various_assets.add_links(cataloging_product_assets, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 api_how = \
-    api_catalog.add_links(how_to_catalog_various_assets, role_name="from", stereotype_instances=can_use)[0]
+    api_catalog.add_links(how_to_catalog_various_assets, role_name="from", stereotype_instances=option2)[0]
 data_how = \
-    data_catalog.add_links(how_to_catalog_various_assets, role_name="from", stereotype_instances=can_use)[0]
+    data_catalog.add_links(how_to_catalog_various_assets, role_name="from", stereotype_instances=option2)[0]
 model_how = \
-    model_store.add_links(how_to_catalog_various_assets, role_name="from", stereotype_instances=can_use)[0]
+    model_store2.add_links(how_to_catalog_various_assets, role_name="from", stereotype_instances=option2)[0]
 pub_cat = \
-    how_to_publish_assets_information.add_links(cataloging_product_assets, role_name="from", stereotype_instances=can_use)[0]
+    how_to_publish_assets_information.add_links(cataloging_product_assets, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 prop_cat = \
-    how_to_propagate_the_changes_to_the_status_of_assets.add_links(cataloging_product_assets, role_name="from", stereotype_instances=can_use)[0]
+    how_to_propagate_the_changes_to_the_status_of_assets.add_links(cataloging_product_assets, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 pull_cat = \
-    pull_model.add_links(how_to_publish_assets_information, role_name="from", stereotype_instances=can_use)[0]
+    pull_model.add_links(how_to_publish_assets_information, role_name="from", stereotype_instances=option2)[0]
 push_cat = \
-    push_model.add_links(how_to_publish_assets_information, role_name="from", stereotype_instances=can_use)[0]
+    push_model.add_links(how_to_publish_assets_information, role_name="from", stereotype_instances=option2)[0]
 pull_prop = \
-    pull_model.add_links(how_to_propagate_the_changes_to_the_status_of_assets, role_name="from", stereotype_instances=can_use)[0]
+    pull_model.add_links(how_to_propagate_the_changes_to_the_status_of_assets, role_name="from", stereotype_instances=option2)[0]
 push_prop = \
-    push_model.add_links(how_to_propagate_the_changes_to_the_status_of_assets, role_name="from", stereotype_instances=can_use)[0]
+    push_model.add_links(how_to_propagate_the_changes_to_the_status_of_assets, role_name="from", stereotype_instances=option2)[0]
 pol_for = \
-    policy_as_code.add_links(defining_and_enforcing_of_governance_policies, role_name="from", stereotype_instances=can_use)[0]
+    policy_as_code.add_links(defining_and_enforcing_of_governance_policies, role_name="from", stereotype_instances=option2)[0]
 auth_pol = \
-    authoring_tools.add_links(policy_as_code, role_name="from", stereotype_instances=can_use)[0]
+    authoring_tools.add_links(policy_as_code, role_name="from", stereotype_instances=requires)[0]
 pol_pol = \
-    policy_engines.add_links(policy_as_code, role_name="from", stereotype_instances=can_use)[0]
+    policy_engines.add_links(policy_as_code, role_name="from", stereotype_instances=requires)[0]
 qual_pol = \
-    data_quality_checkers.add_links(policy_as_code, role_name="from", stereotype_instances=can_use)[0]
+    data_quality_checkers.add_links(policy_as_code, role_name="from", stereotype_instances=can_be_combined_with)[0]
 access_pol = \
-    access_and_identity_manager.add_links(policy_as_code, role_name="from", stereotype_instances=can_use)[0]
+    access_and_identity_manager.add_links(policy_as_code, role_name="from", stereotype_instances=can_be_combined_with)[0]
 priv_pol = \
-    privacy_enhancing_technologies.add_links(policy_as_code, role_name="from", stereotype_instances=can_use)[0]
+    privacy_enhancing_technologies.add_links(policy_as_code, role_name="from", stereotype_instances=can_be_combined_with)[0]
 alert_mon = \
-    alert_generation.add_links(monitoring_infrastructure_resources, role_name="from", stereotype_instances=can_use)[0]
+    alert_generation.add_links(monitoring_infrastructure_resources, role_name="from", stereotype_instances=option2)[0]
 log_mon = \
-    log_management.add_links(monitoring_infrastructure_resources, role_name="from", stereotype_instances=can_use)[0]
+    log_management.add_links(monitoring_infrastructure_resources, role_name="from", stereotype_instances=option2)[0]
 res_mon = \
-    resource_usage_and_cost_management.add_links(monitoring_infrastructure_resources, role_name="from", stereotype_instances=can_use)[0]
+    resource_usage_and_cost_management.add_links(monitoring_infrastructure_resources, role_name="from", stereotype_instances=option2)[0]
 
 dep_decision = CClass(decision, "Which capabilities should be offered by the infrastructure utility plane for deploying products, and how?")
 add_decision_option_link(dep_decision, what_deployment_options_should_be_supported,
@@ -265,33 +270,33 @@ add_decision_option_link(dep_decision, how_should_resources_be_provisioned_and_m
 add_decision_option_link(dep_decision, how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation,
                          "Option")
 net_what = \
-    networking.add_links(what_deployment_options_should_be_supported, role_name="from", stereotype_instances=can_use)[0]
+    networking.add_links(what_deployment_options_should_be_supported, role_name="from", stereotype_instances=option2)[0]
 com_what = \
-    compute.add_links(what_deployment_options_should_be_supported, role_name="from", stereotype_instances=can_use)[0]
+    compute.add_links(what_deployment_options_should_be_supported, role_name="from", stereotype_instances=option2)[0]
 con_com = \
-    containers.add_links(compute, role_name="from", stereotype_instances=can_use)[0]
+    containers.add_links(compute, role_name="from", stereotype_instances=option2)[0]
 vm_com = \
-    vms.add_links(compute, role_name="from", stereotype_instances=can_use)[0]
+    vms.add_links(compute, role_name="from", stereotype_instances=option2)[0]
 fa_com = \
-    faas.add_links(compute, role_name="from", stereotype_instances=can_use)[0]
+    faas.add_links(compute, role_name="from", stereotype_instances=option2)[0]
 con_con = \
-    container_orchestrators.add_links(containers, role_name="from", stereotype_instances=can_use)[0]
+    container_orchestrators.add_links(containers, role_name="from", stereotype_instances=requires)[0]
 reg_con = \
-    container_registry.add_links(containers, role_name="from", stereotype_instances=can_use)[0]
+    container_registry.add_links(containers, role_name="from", stereotype_instances=requires)[0]
 fa_fa = \
-    faas_orchestrators.add_links(faas, role_name="from", stereotype_instances=can_use)[0]
+    faas_orchestrators.add_links(faas, role_name="from", stereotype_instances=requires)[0]
 build_how = \
-    build_scripts_and_ui.add_links(how_should_resources_be_provisioned_and_managed, role_name="from", stereotype_instances=can_use)[0]
+    build_scripts_and_ui.add_links(how_should_resources_be_provisioned_and_managed, role_name="from", stereotype_instances=option2)[0]
 auto_how = \
-    auto_scaling.add_links(how_should_resources_be_provisioned_and_managed, role_name="from", stereotype_instances=can_use)[0]
+    auto_scaling.add_links(how_should_resources_be_provisioned_and_managed, role_name="from", stereotype_instances=option2)[0]
 iac_how = \
-    iac.add_links(how_should_resources_be_provisioned_and_managed, role_name="from", stereotype_instances=can_use)[0]
+    iac.add_links(how_should_resources_be_provisioned_and_managed, role_name="from", stereotype_instances=option2)[0]
 iac_orch = \
-    iac_based_orchestrators.add_links(iac, role_name="from", stereotype_instances=can_use)[0]
+    iac_based_orchestrators.add_links(iac, role_name="from", stereotype_instances=requires)[0]
 vpc_how = \
-    vpc.add_links(how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation, role_name="from", stereotype_instances=can_use)[0]
+    vpc.add_links(how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation, role_name="from", stereotype_instances=option2)[0]
 mutli_how = \
-    multi_tenancy.add_links(how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation, role_name="from", stereotype_instances=can_use)[0]
+    multi_tenancy.add_links(how_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation, role_name="from", stereotype_instances=option2)[0]
 
 cross_decision = CClass(decision, "What are the cross-cutting capabilities and processes of the infrastructure plane?")
 add_decision_option_link(cross_decision, how_to_automate_building_delivery_and_deployment_of_product_and_platform_components,
@@ -304,27 +309,27 @@ add_decision_option_link(cross_decision, how_should_the_features_and_usage_workf
                          "Option")
 
 ci_how = \
-    ci_cd_pipeline.add_links(how_to_automate_building_delivery_and_deployment_of_product_and_platform_components, role_name="from", stereotype_instances=can_use)[0]
+    ci_cd_pipeline.add_links(how_to_automate_building_delivery_and_deployment_of_product_and_platform_components, role_name="from", stereotype_instances=option2)[0]
 ci_ci = \
-    ci_cd_platform.add_links(ci_cd_pipeline, role_name="from", stereotype_instances=can_use)[0]
+    ci_cd_platform.add_links(ci_cd_pipeline, role_name="from", stereotype_instances=requires)[0]
 ci_ver = \
-    version_control_system.add_links(ci_cd_pipeline, role_name="from", stereotype_instances=can_use)[0]
+    version_control_system.add_links(ci_cd_pipeline, role_name="from", stereotype_instances=requires)[0]
 lib_wha = \
-    library.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=can_use)[0]
+    library.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=option2)[0]
 cli_wha = \
-    cli.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=can_use)[0]
+    cli.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=option2)[0]
 ui_wha = \
-    web_ui.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=can_use)[0]
+    web_ui.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=option2)[0]
 api_wha = \
-    web_api.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=can_use)[0]
+    web_api.add_links(what_should_be_the_form_of_the_apis_of_the_infrastructure_utility_plane, role_name="from", stereotype_instances=option2)[0]
 build_should = \
-    build.add_links(should_a_platform_component_be_built_or_bought, role_name="from", stereotype_instances=can_use)[0]
+    build.add_links(should_a_platform_component_be_built_or_bought, role_name="from", stereotype_instances=option2)[0]
 buy_should = \
-    buy.add_links(should_a_platform_component_be_built_or_bought, role_name="from", stereotype_instances=can_use)[0]
+    buy.add_links(should_a_platform_component_be_built_or_bought, role_name="from", stereotype_instances=option2)[0]
 pers_work = \
-    personas_first.add_links(how_should_the_features_and_usage_workflows_of_a_platform_component_be_decided, role_name="from", stereotype_instances=can_use)[0]
+    personas_first.add_links(how_should_the_features_and_usage_workflows_of_a_platform_component_be_decided, role_name="from", stereotype_instances=option2)[0]
 tool_work = \
-    tool_first.add_links(how_should_the_features_and_usage_workflows_of_a_platform_component_be_decided, role_name="from", stereotype_instances=can_use)[0]
+    tool_first.add_links(how_should_the_features_and_usage_workflows_of_a_platform_component_be_decided, role_name="from", stereotype_instances=option2)[0]
 
 product_decision = CClass(decision, "Which capabilities should be offered by the data product experience plane?")
 add_decision_option_link(product_decision, build_dp,
@@ -347,43 +352,45 @@ add_decision_option_link(product_decision, version_dp,
                          "Option")
 
 dev_build = \
-    how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum.add_links(build_dp, role_name="from", stereotype_instances=can_use)[0]
+    how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum.add_links(build_dp, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 dev_test = \
-    how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum.add_links(test_dp, role_name="from", stereotype_instances=can_use)[0]
+    how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum.add_links(test_dp, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 dev_dep = \
-    how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum.add_links(deploy_dp, role_name="from", stereotype_instances=can_use)[0]
+    how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum.add_links(deploy_dp, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 connect_make = \
-    how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform.add_links(connect_and_read_dp, role_name="from", stereotype_instances=can_use)[0]
+    how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform.add_links(connect_and_read_dp, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 monitor_make = \
-    how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform.add_links(test_dp, role_name="from", stereotype_instances=can_use)[0]
+    how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform.add_links(test_dp, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 enable_connect = \
-    how_to_enable_consumers_to_provide_the_feedback_on_a_product.add_links(connect_and_read_dp, role_name="from", stereotype_instances=can_use)[0]
+    how_to_enable_consumers_to_provide_the_feedback_on_a_product.add_links(connect_and_read_dp, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 evolve_safely = \
-    how_to_safely_change_products_and_notify_changes.add_links(evolve_dp, role_name="from", stereotype_instances=can_use)[0]
+    how_to_safely_change_products_and_notify_changes.add_links(evolve_dp, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 version_safely = \
-    version_dp.add_links(how_to_safely_change_products_and_notify_changes, role_name="from", stereotype_instances=can_use)[0]
+    version_dp.add_links(how_to_safely_change_products_and_notify_changes, role_name="from", stereotype_instances=option2)[0]
 push_not = \
-    push_pull_notfication.add_links(how_to_safely_change_products_and_notify_changes, role_name="from", stereotype_instances=can_use)[0]
+    push_pull_notfication.add_links(how_to_safely_change_products_and_notify_changes, role_name="from", stereotype_instances=option2)[0]
 data_enable = \
-    data_product_code_repository.add_links(how_to_enable_consumers_to_provide_the_feedback_on_a_product, role_name="from", stereotype_instances=can_use)[0]
+    data_product_code_repository.add_links(how_to_enable_consumers_to_provide_the_feedback_on_a_product, role_name="from", stereotype_instances=option2)[0]
 low_feedback = \
-    low_level_catalog_apis.add_links(how_to_enable_consumers_to_provide_the_feedback_on_a_product, role_name="from", stereotype_instances=can_use)[0]
+    low_level_catalog_apis.add_links(how_to_enable_consumers_to_provide_the_feedback_on_a_product, role_name="from", stereotype_instances=option2)[0]
 data_discover = \
-    data_product_metric.add_links(how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform, role_name="from", stereotype_instances=can_use)[0]
+    data_product_metric.add_links(how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform, role_name="from", stereotype_instances=option2)[0]
 contract_discover = \
-    data_product_contract.add_links(how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform, role_name="from", stereotype_instances=can_use)[0]
+    data_product_contract.add_links(how_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform, role_name="from", stereotype_instances=option2)[0]
 contract_publish = \
     data_product_contract.add_links(publish_dp, role_name="from", stereotype_instances=can_use)[0]
 blue_dev = \
-    product_blueprint.add_links(how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum, role_name="from", stereotype_instances=can_use)[0]
+    product_blueprint.add_links(how_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum, role_name="from", stereotype_instances=option2)[0]
+auto_blue = \
+    how_to_automate_building_and_delivery_of_dps.add_links(product_blueprint, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 ci_automate = \
-    ci_cd_integration.add_links(how_to_automate_building_and_delivery_of_dps, role_name="from", stereotype_instances=can_use)[0]
+    ci_cd_integration.add_links(how_to_automate_building_and_delivery_of_dps, role_name="from", stereotype_instances=option2)[0]
 iac_blue = \
-    iac_blueprint.add_links(product_blueprint, role_name="from", stereotype_instances=can_use)[0]
+    iac_blueprint.add_links(product_blueprint, role_name="from", stereotype_instances=includes)[0]
 catalog_template = \
-    data_catalog_template.add_links(product_blueprint, role_name="from", stereotype_instances=can_use)[0]
+    data_catalog_template.add_links(product_blueprint, role_name="from", stereotype_instances=includes)[0]
 low_catalog = \
-    low_level_catalog_apis.add_links(data_catalog_template, role_name="from", stereotype_instances=can_use)[0]
+    low_level_catalog_apis.add_links(data_catalog_template, role_name="from", stereotype_instances=requires)[0]
 data_calc = \
     metric_calculation_pipeline.add_links(data_product_metric, role_name="from", stereotype_instances=can_use)[0]
 
@@ -398,35 +405,37 @@ add_decision_option_link(experience_decision, govern_data_mesh,
                          "Option")
 
 uniform_reg = \
-    how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products.add_links(register_data_products, role_name="from", stereotype_instances=can_use)[0]
+    how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products.add_links(register_data_products, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 uniform_search = \
-    how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products.add_links(search_data_products, role_name="from", stereotype_instances=can_use)[0]
+    how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products.add_links(search_data_products, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 mon_dash = \
-    data_mesh_dashboard.add_links(monitor_data_mesh, role_name="from", stereotype_instances=can_use)[0]
+    data_mesh_dashboard.add_links(monitor_data_mesh, role_name="from", stereotype_instances=uses)[0]
 enf_pol = \
-    how_to_enforce_global_policies.add_links(govern_data_mesh, role_name="from", stereotype_instances=can_use)[0]
+    how_to_enforce_global_policies.add_links(govern_data_mesh, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 enf_gov = \
-    how_to_enforce_data_contracts.add_links(govern_data_mesh, role_name="from", stereotype_instances=can_use)[0]
+    how_to_enforce_data_contracts.add_links(govern_data_mesh, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 aut_pol = \
-    automated.add_links(how_to_enforce_global_policies, role_name="from", stereotype_instances=can_use)[0]
+    automated.add_links(how_to_enforce_global_policies, role_name="from", stereotype_instances=option2)[0]
 aut_con = \
-    automated.add_links(how_to_enforce_data_contracts, role_name="from", stereotype_instances=can_use)[0]
+    automated.add_links(how_to_enforce_data_contracts, role_name="from", stereotype_instances=option2)[0]
 man_pol = \
-    manual_or_semi_automated.add_links(how_to_enforce_global_policies, role_name="from", stereotype_instances=can_use)[0]
+    manual_or_semi_automated.add_links(how_to_enforce_global_policies, role_name="from", stereotype_instances=option2)[0]
 man_con = \
-    manual_or_semi_automated.add_links(how_to_enforce_data_contracts, role_name="from", stereotype_instances=can_use)[0]
+    manual_or_semi_automated.add_links(how_to_enforce_data_contracts, role_name="from", stereotype_instances=option2)[0]
 reg_prov = \
-    data_product_registry.add_links(how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products, role_name="from", stereotype_instances=can_use)[0]
+    data_product_registry.add_links(how_to_provide_a_uniform_experience_for_registering_and_browsing_data_products, role_name="from", stereotype_instances=option2)[0]
 reg_dash = \
     data_product_registry.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=can_use)[0]
 dash_dash = \
-    what_should_be_displaced_in_the_dashboard.add_links(data_mesh_dashboard, role_name="from", stereotype_instances=can_use)[0]
+    what_should_be_displaced_in_the_dashboard.add_links(data_mesh_dashboard, role_name="from", stereotype_instances=consider_if_not_decided)[0]
 access_dash = \
-    data_product_access_history.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=can_use)[0]
+    data_product_access_history.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=option2)[0]
+dash_dash = \
+    global_data_lineage_graphs.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=option2)[0]
 mesh_dash = \
-    data_mesh_graphs.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=can_use)[0]
+    data_mesh_graphs.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=option2)[0]
 alert_dash = \
-    alerts.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=can_use)[0]
+    alerts.add_links(what_should_be_displaced_in_the_dashboard, role_name="from", stereotype_instances=option2)[0]
 alert_auto = \
     alerts.add_links(automated, role_name="from", stereotype_instances=can_use)[0]
 high_auto = \

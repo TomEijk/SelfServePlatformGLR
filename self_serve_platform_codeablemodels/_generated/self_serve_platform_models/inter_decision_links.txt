@@ -1,0 +1,20 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "Which capabilities/APIs should be offered by the\ninfrastructure utility plane for executing data\nproduct components, and how?\n : Decision" as __1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_
+class "Which capabilities should be offered by the data\ninfrastructure plane for various governance functions\nat the product level and mesh level and how?\n : Decision" as __2_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_
+class "Which capabilities should be offered by the infrastructure\nutility plane for deploying products, and how?\n : Decision" as __3_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_
+class "What are the cross-cutting capabilities and processes\nof the infrastructure plane?\n : Decision" as __4_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_
+class "Which capabilities should be offered by the data\nproduct experience plane?\n : Decision" as __5_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_
+class "What capabilities should be offered by a data\nmesh experience plane and how?\n : Decision" as __6_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __2_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_: "«Consider If Not Decided Yet» \n" 
+__2_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_ --> __3_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_: "«Consider If Not Decided Yet» \n" 
+__3_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_ --> __4_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_: "«Consider If Not Decided Yet» \n" 
+__4_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_ --> __5_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_: "«Consider If Not Decided Yet» \n" 
+__5_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __6_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_: "«Consider If Not Decided Yet» \n" 
+@enduml

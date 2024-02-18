@@ -1,0 +1,40 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "What are the cross-cutting capabilities and processes\nof the infrastructure plane?\n : Decision" as __1_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_
+class "How to automate building, delivery, and deployment\nof product and platform components?\n : Decision" as __2_How_to_automate_building__delivery__and_deployment_of_product_and_platform_components_
+class "CI-CD Pipeline : Pattern" as __3_CI_CD_Pipeline
+class "CI-CD Platform : Pattern" as __4_CI_CD_Platform
+class "Version Control System : Pattern" as __5_Version_Control_System
+class "What should be the form of the APIs of the infrastructure\nutility plane?\n : Decision" as __6_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_
+class "Library : Pattern" as __7_Library
+class "CLI : Pattern" as __8_CLI
+class "Web UI : Pattern" as __9_Web_UI
+class "Web API : Pattern" as __10_Web_API
+class "Should a component be built or bought?\n : Decision" as __11_Should_a_component_be_built_or_bought_
+class "Build : Practice" as __12_Build
+class "Buy : Practice" as __13_Buy
+class "How should the features and usage workflows of\na platform component be decided?\n : Decision" as __14_How_should_the_features_and_usage_workflows_of_a_platform_component_be_decided_
+class "Personas-first : Practice" as __15_Personas_first
+class "Tool-first : Practice" as __16_Tool_first
+__1_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_ --> __2_How_to_automate_building__delivery__and_deployment_of_product_and_platform_components_: "«Option» \n{name = "Option"}\n" 
+__1_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_ --> __6_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_: "«Option» \n{name = "Option"}\n" 
+__1_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_ --> __11_Should_a_component_be_built_or_bought_: "«Option» \n{name = "Option"}\n" 
+__1_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_ --> __14_How_should_the_features_and_usage_workflows_of_a_platform_component_be_decided_: "«Option» \n{name = "Option"}\n" 
+__2_How_to_automate_building__delivery__and_deployment_of_product_and_platform_components_ --> __3_CI_CD_Pipeline: "«Option» \n" 
+__3_CI_CD_Pipeline --> __4_CI_CD_Platform: "«Requires» \n" 
+__3_CI_CD_Pipeline --> __5_Version_Control_System: "«Requires» \n" 
+__6_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_ --> __7_Library: "«Option» \n" 
+__6_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_ --> __8_CLI: "«Option» \n" 
+__6_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_ --> __9_Web_UI: "«Option» \n" 
+__6_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_ --> __10_Web_API: "«Option» \n" 
+__11_Should_a_component_be_built_or_bought_ --> __12_Build: "«Option» \n" 
+__11_Should_a_component_be_built_or_bought_ --> __13_Buy: "«Option» \n" 
+__14_How_should_the_features_and_usage_workflows_of_a_platform_component_be_decided_ --> __15_Personas_first: "«Option» \n" 
+__14_How_should_the_features_and_usage_workflows_of_a_platform_component_be_decided_ --> __16_Tool_first: "«Option» \n" 
+@enduml

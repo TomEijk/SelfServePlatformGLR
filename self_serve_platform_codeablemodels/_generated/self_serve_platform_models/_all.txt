@@ -1,0 +1,284 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "Which capabilities/APIs should be offered by the\ninfrastructure utility plane for executing data\nproduct components, and how?\n : Decision" as __1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_
+class "Ingesting Data from Various Sources\n : Practice" as __2_Ingesting_Data_from_Various_Sources
+class "Federated Query Engine : Pattern" as __3_Federated_Query_Engine
+class "Stream/Batch Data Connectors : Pattern" as __4_Stream_Batch_Data_Connectors
+class "Sending Data to Various Sinks : Practice" as __5_Sending_Data_to_Various_Sinks
+class "Legacy and Operational System Connectors\n : Pattern" as __6_Legacy_and_Operational_System_Connectors
+class "BI Tool Connectors : Pattern" as __7_BI_Tool_Connectors
+class "Connector Repository : Pattern" as __8_Connector_Repository
+class "Pipeline Connectors : Pattern" as __9_Pipeline_Connectors
+class "How to support customization and reuse of pipelines?\n : Decision" as __10_How_to_support_customization_and_reuse_of_pipelines_
+class "Pipeline Templates : Practice" as __11_Pipeline_Templates
+class "Pipeline/Workflow : Pattern" as __12_Pipeline_Workflow
+class "How to support orchestration of complex data transformations?\n : Decision" as __13_How_to_support_orchestration_of_complex_data_transformations_
+class "Transforming Data : Practice" as __14_Transforming_Data
+class "Batch/Stream Data Processors : Pattern" as __15_Batch_Stream_Data_Processors
+class "BI Tools : Pattern" as __16_BI_Tools
+class "How to support generalists as well data engineers\nin product teams in writing data transformations?\n : Decision" as __17_How_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations_
+class "External DSL : Pattern" as __18_External_DSL
+class "Embedded DSL : Pattern" as __19_Embedded_DSL
+class "Low/no Code Programming Model : Pattern" as __20_Low_no_Code_Programming_Model
+class "Pipeline Orchestrator : Pattern" as __21_Pipeline_Orchestrator
+class "Data Pipeline : Pattern" as __22_Data_Pipeline
+class "ML Pipeline : Pattern" as __23_ML_Pipeline
+class "Template Repository : Pattern" as __24_Template_Repository
+class "Storing Various Data : Practice" as __25_Storing_Various_Data
+class "Polygot Data Storage : Pattern" as __26_Polygot_Data_Storage
+class "Event Stream Platform : Pattern" as __27_Event_Stream_Platform
+class "Storing Other Various Assets : Practice" as __28_Storing_Other_Various_Assets
+class "Schema Registry : Pattern" as __29_Schema_Registry
+class "Model Store : Pattern" as __30_Model_Store
+class "Metadata Store : Practice" as __31_Metadata_Store
+class "Which capabilities should be offered by the data\ninfrastructure plane for various governance functions\nat the product level and mesh level and how?\n : Decision" as __32_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_
+class "Cataloging Product Assets : Pattern" as __33_Cataloging_Product_Assets
+class "How to catalog various assets? : Decision" as __34_How_to_catalog_various_assets_
+class "API Catalog : Pattern" as __35_API_Catalog
+class "Data Catalog : Pattern" as __36_Data_Catalog
+class "Model Store  : Pattern" as __37_Model_Store_
+class "How to publish assets information? : Decision" as __38_How_to_publish_assets_information_
+class "Pull Model : Pattern" as __39_Pull_Model
+class "How to propagate the changes to the status of\nassets?\n : Decision" as __40_How_to_propagate_the_changes_to_the_status_of_assets_
+class "Push Model : Pattern" as __41_Push_Model
+class "Defining and Enforcing of Governance Policies\n : Practice" as __42_Defining_and_Enforcing_of_Governance_Policies
+class "Policy-as-Code : Pattern" as __43_Policy_as_Code
+class "Authoring Tools : Pattern" as __44_Authoring_Tools
+class "Policy Engines : Pattern" as __45_Policy_Engines
+class "Data Quality Checkers : Pattern" as __46_Data_Quality_Checkers
+class "Access and Identity Manager : Pattern" as __47_Access_and_Identity_Manager
+class "Privacy-Enhancing Technologies (PET)\n : Pattern" as __48_Privacy_Enhancing_Technologies__PET_
+class "Monitoring Infrastructure Resources, Product Components\nand Assets\n : Practice" as __49_Monitoring_Infrastructure_Resources__Product_Components_and_Assets
+class "Alert Generation : Practice" as __50_Alert_Generation
+class "Log Management : Practice" as __51_Log_Management
+class "Resource Usage and Cost Management : Practice" as __52_Resource_Usage_and_Cost_Management
+class "Which capabilities should be offered by the infrastructure\nutility plane for deploying products, and how?\n : Decision" as __53_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_
+class "What deployment options should be supported?\n : Decision" as __54_What_deployment_options_should_be_supported_
+class "Networking : Pattern" as __55_Networking
+class "Compute : Pattern" as __56_Compute
+class "Containers : Pattern" as __57_Containers
+class "Container Orchestrators : Pattern" as __58_Container_Orchestrators
+class "Container Registry : Pattern" as __59_Container_Registry
+class "VMs : Pattern" as __60_VMs
+class "FaaS : Pattern" as __61_FaaS
+class "FaaS Orchestrators : Pattern" as __62_FaaS_Orchestrators
+class "How should resources be provisioned and managed?\n : Decision" as __63_How_should_resources_be_provisioned_and_managed_
+class "Build Scripts and UI : Practice" as __64_Build_Scripts_and_UI
+class "Auto-scaling : Pattern" as __65_Auto_scaling
+class "IaC : Pattern" as __66_IaC
+class "IaC based Orchestrators : Pattern" as __67_IaC_based_Orchestrators
+class "How should resources be shared among domain terms\nwhile ensuring workload isolation?\n : Decision" as __68_How_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation_
+class "VPC : Pattern" as __69_VPC
+class "Multi-tenancy : Pattern" as __70_Multi_tenancy
+class "What are the cross-cutting capabilities and processes\nof the infrastructure plane?\n : Decision" as __71_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_
+class "How to automate building, delivery, and deployment\nof product and platform components?\n : Decision" as __72_How_to_automate_building__delivery__and_deployment_of_product_and_platform_components_
+class "CI-CD Pipeline : Pattern" as __73_CI_CD_Pipeline
+class "CI-CD Platform : Pattern" as __74_CI_CD_Platform
+class "Version Control System : Pattern" as __75_Version_Control_System
+class "What should be the form of the APIs of the infrastructure\nutility plane?\n : Decision" as __76_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_
+class "Library : Pattern" as __77_Library
+class "CLI : Pattern" as __78_CLI
+class "Web UI : Pattern" as __79_Web_UI
+class "Web API : Pattern" as __80_Web_API
+class "Should a component be built or bought?\n : Decision" as __81_Should_a_component_be_built_or_bought_
+class "Build : Practice" as __82_Build
+class "Buy : Practice" as __83_Buy
+class "How should the features and usage workflows of\na platform component be decided?\n : Decision" as __84_How_should_the_features_and_usage_workflows_of_a_platform_component_be_decided_
+class "Personas-first : Practice" as __85_Personas_first
+class "Tool-first : Practice" as __86_Tool_first
+class "Which capabilities should be offered by the data\nproduct experience plane?\n : Decision" as __87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_
+class "Build DP : Practice" as __88_Build_DP
+class "How to enable developers to correctly assemble\nall code units and treat them as a single architectural\nquantum?\n : Decision" as __89_How_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum_
+class "Test DP : Practice" as __90_Test_DP
+class "How to make the experience of discovering detailed\ninformation of a product uniform?\n : Decision" as __91_How_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform_
+class "Connect and Read DP : Practice" as __92_Connect_and_Read_DP
+class "How to enable comnsumers to provide the feedback\non a product?\n : Decision" as __93_How_to_enable_comnsumers_to_provide_the_feedback_on_a_product_
+class "Data Product Code Repository : Pattern" as __94_Data_Product_Code_Repository
+class "Low-level Catalog APIs : Pattern" as __95_Low_level_Catalog_APIs
+class "Data Catalog Template : Practice" as __96_Data_Catalog_Template
+class "Product Blueprint : Practice" as __97_Product_Blueprint
+class "How to automate building and delivery of DPs?\n : Decision" as __98_How_to_automate_building_and_delivery_of_DPs_
+class "CI-CD Integration : Practice" as __99_CI_CD_Integration
+class "IaC Blueprint : Practice" as __100_IaC_Blueprint
+class "Data Product Metric : Practice" as __101_Data_Product_Metric
+class "Metric Calculation Pipeline : Pattern" as __102_Metric_Calculation_Pipeline
+class "Data Product Contract : Pattern" as __103_Data_Product_Contract
+class "Publish DP : Practice" as __104_Publish_DP
+class "Deploy DP : Practice" as __105_Deploy_DP
+class "Monitor DP : Practice" as __106_Monitor_DP
+class "Govern DP : Practice" as __107_Govern_DP
+class "Evolve DP : Practice" as __108_Evolve_DP
+class "How to safely change products and how to notify\nchanges?\n : Decision" as __109_How_to_safely_change_products_and_how_to_notify_changes_
+class "Version DP : Practice" as __110_Version_DP
+class "Push/pull Notification : Pattern" as __111_Push_pull_Notification
+class "What capabilities should be offered by a data\nmesh experience plane and how?\n : Decision" as __112_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_
+class "Register Data Products : Practice" as __113_Register_Data_Products
+class "How to provide a uniform experience for registering\nand browsing data products?\n : Decision" as __114_How_to_provide_a_uniform_experience_for_registering_and_browsing_data_products_
+class "Search Data Products : Practice" as __115_Search_Data_Products
+class "Data Product Registry : Practice" as __116_Data_Product_Registry
+class "What should be displaced in the dashboard?\n : Decision" as __117_What_should_be_displaced_in_the_dashboard_
+class "Data Mesh Dashboard : Practice" as __118_Data_Mesh_Dashboard
+class "Monitor Data Mesh : Practice" as __119_Monitor_Data_Mesh
+class "Data Product Access History : Practice" as __120_Data_Product_Access_History
+class "Global Data Lineage Graphs : Pattern" as __121_Global_Data_Lineage_Graphs
+class "Data Mesh Graphs : Pattern" as __122_Data_Mesh_Graphs
+class "Alerts : Pattern" as __123_Alerts
+class "Automated : Practice" as __124_Automated
+class "How to enforce global policies? : Decision" as __125_How_to_enforce_global_policies_
+class "Govern Data Mesh : Practice" as __126_Govern_Data_Mesh
+class "How to enforce data contracts? : Decision" as __127_How_to_enforce_data_contracts_
+class "Manual or Semi-Automated : Practice" as __128_Manual_or_Semi_Automated
+class "High-level Policy Enforcement API : Pattern" as __129_High_level_Policy_Enforcement_API
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __32_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_: "«Consider If Not Decided Yet» \n" 
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __2_Ingesting_Data_from_Various_Sources: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __5_Sending_Data_to_Various_Sinks: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __14_Transforming_Data: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __25_Storing_Various_Data: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __28_Storing_Other_Various_Assets: "«Option» \n{name = "Option"}\n" 
+__2_Ingesting_Data_from_Various_Sources --> __3_Federated_Query_Engine: "«Option» \n" 
+__2_Ingesting_Data_from_Various_Sources --> __4_Stream_Batch_Data_Connectors: "«Option» \n" 
+__4_Stream_Batch_Data_Connectors --> __6_Legacy_and_Operational_System_Connectors: "«Option» \n" 
+__4_Stream_Batch_Data_Connectors --> __7_BI_Tool_Connectors: "«Includes» \n" 
+__4_Stream_Batch_Data_Connectors --> __8_Connector_Repository: "«Requires» \n" 
+__5_Sending_Data_to_Various_Sinks --> __4_Stream_Batch_Data_Connectors: "«Option» \n" 
+__9_Pipeline_Connectors --> __8_Connector_Repository: "«Requires» \n" 
+__10_How_to_support_customization_and_reuse_of_pipelines_ --> __9_Pipeline_Connectors: "«Option» \n" 
+__10_How_to_support_customization_and_reuse_of_pipelines_ --> __11_Pipeline_Templates: "«Option» \n" 
+__11_Pipeline_Templates --> __24_Template_Repository: "«Requires» \n" 
+__12_Pipeline_Workflow --> __21_Pipeline_Orchestrator: "«Consider if not Decided» \n" 
+__12_Pipeline_Workflow --> __22_Data_Pipeline: "«Includes» \n" 
+__12_Pipeline_Workflow --> __23_ML_Pipeline: "«Includes» \n" 
+__12_Pipeline_Workflow --> __11_Pipeline_Templates: "«Can Use» \n" 
+__12_Pipeline_Workflow --> __10_How_to_support_customization_and_reuse_of_pipelines_: "«Consider if not Decided» \n" 
+__13_How_to_support_orchestration_of_complex_data_transformations_ --> __12_Pipeline_Workflow: "«Uses» \n" 
+__14_Transforming_Data --> __15_Batch_Stream_Data_Processors: "«Option» \n" 
+__14_Transforming_Data --> __13_How_to_support_orchestration_of_complex_data_transformations_: "«Consider if not Decided» \n" 
+__14_Transforming_Data --> __16_BI_Tools: "«Option» \n" 
+__14_Transforming_Data --> __17_How_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations_: "«Consider if not Decided» \n" 
+__17_How_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations_ --> __18_External_DSL: "«Option» \n" 
+__17_How_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations_ --> __19_Embedded_DSL: "«Option» \n" 
+__17_How_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations_ --> __20_Low_no_Code_Programming_Model: "«Option» \n" 
+__23_ML_Pipeline --> __22_Data_Pipeline: "«Can Be Combined With» \n" 
+__25_Storing_Various_Data --> __26_Polygot_Data_Storage: "«Option» \n" 
+__25_Storing_Various_Data --> __27_Event_Stream_Platform: "«Option» \n" 
+__28_Storing_Other_Various_Assets --> __29_Schema_Registry: "«Option» \n" 
+__28_Storing_Other_Various_Assets --> __30_Model_Store: "«Option» \n" 
+__28_Storing_Other_Various_Assets --> __31_Metadata_Store: "«Option» \n" 
+__32_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_ --> __53_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_: "«Consider If Not Decided Yet» \n" 
+__32_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_ --> __33_Cataloging_Product_Assets: "«Option» \n{name = "Option"}\n" 
+__32_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_ --> __42_Defining_and_Enforcing_of_Governance_Policies: "«Option» \n{name = "Option"}\n" 
+__32_Which_capabilities_should_be_offered_by_the_data_infrastructure_plane_for_various_governance_functions_at_the_product_level_and_mesh_level_and_how_ --> __49_Monitoring_Infrastructure_Resources__Product_Components_and_Assets: "«Option» \n{name = "Option"}\n" 
+__33_Cataloging_Product_Assets --> __34_How_to_catalog_various_assets_: "«Consider if not Decided» \n" 
+__33_Cataloging_Product_Assets --> __38_How_to_publish_assets_information_: "«Consider if not Decided» \n" 
+__33_Cataloging_Product_Assets --> __40_How_to_propagate_the_changes_to_the_status_of_assets_: "«Consider if not Decided» \n" 
+__34_How_to_catalog_various_assets_ --> __35_API_Catalog: "«Option» \n" 
+__34_How_to_catalog_various_assets_ --> __36_Data_Catalog: "«Option» \n" 
+__34_How_to_catalog_various_assets_ --> __37_Model_Store_: "«Option» \n" 
+__38_How_to_publish_assets_information_ --> __39_Pull_Model: "«Option» \n" 
+__38_How_to_publish_assets_information_ --> __41_Push_Model: "«Option» \n" 
+__40_How_to_propagate_the_changes_to_the_status_of_assets_ --> __39_Pull_Model: "«Option» \n" 
+__40_How_to_propagate_the_changes_to_the_status_of_assets_ --> __41_Push_Model: "«Option» \n" 
+__42_Defining_and_Enforcing_of_Governance_Policies --> __43_Policy_as_Code: "«Option» \n" 
+__43_Policy_as_Code --> __44_Authoring_Tools: "«Requires» \n" 
+__43_Policy_as_Code --> __45_Policy_Engines: "«Requires» \n" 
+__43_Policy_as_Code --> __46_Data_Quality_Checkers: "«Can Be Combined With» \n" 
+__43_Policy_as_Code --> __47_Access_and_Identity_Manager: "«Can Be Combined With» \n" 
+__43_Policy_as_Code --> __48_Privacy_Enhancing_Technologies__PET_: "«Can Be Combined With» \n" 
+__49_Monitoring_Infrastructure_Resources__Product_Components_and_Assets --> __50_Alert_Generation: "«Option» \n" 
+__49_Monitoring_Infrastructure_Resources__Product_Components_and_Assets --> __51_Log_Management: "«Option» \n" 
+__49_Monitoring_Infrastructure_Resources__Product_Components_and_Assets --> __52_Resource_Usage_and_Cost_Management: "«Option» \n" 
+__53_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_ --> __71_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_: "«Consider If Not Decided Yet» \n" 
+__53_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_ --> __54_What_deployment_options_should_be_supported_: "«Option» \n{name = "Option"}\n" 
+__53_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_ --> __63_How_should_resources_be_provisioned_and_managed_: "«Option» \n{name = "Option"}\n" 
+__53_Which_capabilities_should_be_offered_by_the_infrastructure_utility_plane_for_deploying_products__and_how_ --> __68_How_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation_: "«Option» \n{name = "Option"}\n" 
+__54_What_deployment_options_should_be_supported_ --> __55_Networking: "«Option» \n" 
+__54_What_deployment_options_should_be_supported_ --> __56_Compute: "«Option» \n" 
+__56_Compute --> __57_Containers: "«Option» \n" 
+__56_Compute --> __60_VMs: "«Option» \n" 
+__56_Compute --> __61_FaaS: "«Option» \n" 
+__57_Containers --> __58_Container_Orchestrators: "«Requires» \n" 
+__57_Containers --> __59_Container_Registry: "«Requires» \n" 
+__61_FaaS --> __62_FaaS_Orchestrators: "«Requires» \n" 
+__63_How_should_resources_be_provisioned_and_managed_ --> __64_Build_Scripts_and_UI: "«Option» \n" 
+__63_How_should_resources_be_provisioned_and_managed_ --> __65_Auto_scaling: "«Option» \n" 
+__63_How_should_resources_be_provisioned_and_managed_ --> __66_IaC: "«Option» \n" 
+__66_IaC --> __67_IaC_based_Orchestrators: "«Requires» \n" 
+__68_How_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation_ --> __69_VPC: "«Option» \n" 
+__68_How_should_resources_be_shared_among_domain_terms_while_ensuring_workload_isolation_ --> __70_Multi_tenancy: "«Option» \n" 
+__71_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_ --> __87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_: "«Consider If Not Decided Yet» \n" 
+__71_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_ --> __72_How_to_automate_building__delivery__and_deployment_of_product_and_platform_components_: "«Option» \n{name = "Option"}\n" 
+__71_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_ --> __76_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_: "«Option» \n{name = "Option"}\n" 
+__71_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_ --> __81_Should_a_component_be_built_or_bought_: "«Option» \n{name = "Option"}\n" 
+__71_What_are_the_cross_cutting_capabilities_and_processes_of_the_infrastructure_plane_ --> __84_How_should_the_features_and_usage_workflows_of_a_platform_component_be_decided_: "«Option» \n{name = "Option"}\n" 
+__72_How_to_automate_building__delivery__and_deployment_of_product_and_platform_components_ --> __73_CI_CD_Pipeline: "«Option» \n" 
+__73_CI_CD_Pipeline --> __74_CI_CD_Platform: "«Requires» \n" 
+__73_CI_CD_Pipeline --> __75_Version_Control_System: "«Requires» \n" 
+__76_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_ --> __77_Library: "«Option» \n" 
+__76_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_ --> __78_CLI: "«Option» \n" 
+__76_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_ --> __79_Web_UI: "«Option» \n" 
+__76_What_should_be_the_form_of_the_APIs_of_the_infrastructure_utility_plane_ --> __80_Web_API: "«Option» \n" 
+__81_Should_a_component_be_built_or_bought_ --> __82_Build: "«Option» \n" 
+__81_Should_a_component_be_built_or_bought_ --> __83_Buy: "«Option» \n" 
+__84_How_should_the_features_and_usage_workflows_of_a_platform_component_be_decided_ --> __85_Personas_first: "«Option» \n" 
+__84_How_should_the_features_and_usage_workflows_of_a_platform_component_be_decided_ --> __86_Tool_first: "«Option» \n" 
+__87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __112_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_: "«Consider If Not Decided Yet» \n" 
+__87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __88_Build_DP: "«Option» \n{name = "Option"}\n" 
+__87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __90_Test_DP: "«Option» \n{name = "Option"}\n" 
+__87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __105_Deploy_DP: "«Option» \n{name = "Option"}\n" 
+__87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __104_Publish_DP: "«Option» \n{name = "Option"}\n" 
+__87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __92_Connect_and_Read_DP: "«Option» \n{name = "Option"}\n" 
+__87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __106_Monitor_DP: "«Option» \n{name = "Option"}\n" 
+__87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __107_Govern_DP: "«Option» \n{name = "Option"}\n" 
+__87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __108_Evolve_DP: "«Option» \n{name = "Option"}\n" 
+__87_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __110_Version_DP: "«Option» \n{name = "Option"}\n" 
+__88_Build_DP --> __89_How_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum_: "«Consider if not Decided» \n" 
+__89_How_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum_ --> __97_Product_Blueprint: "«Option» \n" 
+__90_Test_DP --> __89_How_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum_: "«Consider if not Decided» \n" 
+__90_Test_DP --> __91_How_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform_: "«Consider if not Decided» \n" 
+__91_How_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform_ --> __101_Data_Product_Metric: "«Option» \n" 
+__91_How_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform_ --> __103_Data_Product_Contract: "«Option» \n" 
+__92_Connect_and_Read_DP --> __91_How_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform_: "«Consider if not Decided» \n" 
+__92_Connect_and_Read_DP --> __93_How_to_enable_comnsumers_to_provide_the_feedback_on_a_product_: "«Consider if not Decided» \n" 
+__93_How_to_enable_comnsumers_to_provide_the_feedback_on_a_product_ --> __94_Data_Product_Code_Repository: "«Option» \n" 
+__93_How_to_enable_comnsumers_to_provide_the_feedback_on_a_product_ --> __95_Low_level_Catalog_APIs: "«Option» \n" 
+__96_Data_Catalog_Template --> __95_Low_level_Catalog_APIs: "«Requires» \n" 
+__97_Product_Blueprint --> __98_How_to_automate_building_and_delivery_of_DPs_: "«Consider if not Decided» \n" 
+__97_Product_Blueprint --> __100_IaC_Blueprint: "«Includes» \n" 
+__97_Product_Blueprint --> __96_Data_Catalog_Template: "«Includes» \n" 
+__98_How_to_automate_building_and_delivery_of_DPs_ --> __99_CI_CD_Integration: "«Option» \n" 
+__101_Data_Product_Metric --> __102_Metric_Calculation_Pipeline: "«Can Use» \n" 
+__104_Publish_DP --> __103_Data_Product_Contract: "«Can Use» \n" 
+__105_Deploy_DP --> __89_How_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum_: "«Consider if not Decided» \n" 
+__108_Evolve_DP --> __109_How_to_safely_change_products_and_how_to_notify_changes_: "«Consider if not Decided» \n" 
+__109_How_to_safely_change_products_and_how_to_notify_changes_ --> __110_Version_DP: "«Option» \n" 
+__109_How_to_safely_change_products_and_how_to_notify_changes_ --> __111_Push_pull_Notification: "«Option» \n" 
+__112_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_ --> __113_Register_Data_Products: "«Option» \n{name = "Option"}\n" 
+__112_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_ --> __115_Search_Data_Products: "«Option» \n{name = "Option"}\n" 
+__112_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_ --> __119_Monitor_Data_Mesh: "«Option» \n{name = "Option"}\n" 
+__112_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_ --> __126_Govern_Data_Mesh: "«Option» \n{name = "Option"}\n" 
+__113_Register_Data_Products --> __114_How_to_provide_a_uniform_experience_for_registering_and_browsing_data_products_: "«Consider if not Decided» \n" 
+__114_How_to_provide_a_uniform_experience_for_registering_and_browsing_data_products_ --> __116_Data_Product_Registry: "«Option» \n" 
+__115_Search_Data_Products --> __114_How_to_provide_a_uniform_experience_for_registering_and_browsing_data_products_: "«Consider if not Decided» \n" 
+__117_What_should_be_displaced_in_the_dashboard_ --> __116_Data_Product_Registry: "«Can Use» \n" 
+__117_What_should_be_displaced_in_the_dashboard_ --> __120_Data_Product_Access_History: "«Option» \n" 
+__117_What_should_be_displaced_in_the_dashboard_ --> __121_Global_Data_Lineage_Graphs: "«Option» \n" 
+__117_What_should_be_displaced_in_the_dashboard_ --> __122_Data_Mesh_Graphs: "«Option» \n" 
+__117_What_should_be_displaced_in_the_dashboard_ --> __123_Alerts: "«Option» \n" 
+__118_Data_Mesh_Dashboard --> __117_What_should_be_displaced_in_the_dashboard_: "«Consider if not Decided» \n" 
+__119_Monitor_Data_Mesh --> __118_Data_Mesh_Dashboard: "«Uses» \n" 
+__124_Automated --> __123_Alerts: "«Can Use» \n" 
+__124_Automated --> __129_High_level_Policy_Enforcement_API: "«Can Use» \n" 
+__125_How_to_enforce_global_policies_ --> __124_Automated: "«Option» \n" 
+__125_How_to_enforce_global_policies_ --> __128_Manual_or_Semi_Automated: "«Option» \n" 
+__126_Govern_Data_Mesh --> __125_How_to_enforce_global_policies_: "«Consider if not Decided» \n" 
+__126_Govern_Data_Mesh --> __127_How_to_enforce_data_contracts_: "«Consider if not Decided» \n" 
+__127_How_to_enforce_data_contracts_ --> __124_Automated: "«Option» \n" 
+__127_How_to_enforce_data_contracts_ --> __128_Manual_or_Semi_Automated: "«Option» \n" 
+__128_Manual_or_Semi_Automated --> __129_High_level_Policy_Enforcement_API: "«Can Use» \n" 
+@enduml

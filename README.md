@@ -9,9 +9,7 @@ This repository / data set contains the following elements:
 *	In each file we also documented the axial coding steps performed in the coded models, to ensure traceability between open coding and formal coding in Python
 *	All classes and instances are in the `self_serve_platform_models` folder
   -	The file `self_serve_platform_models.py` contains all models of ADDs
-  -	The file `sources_and_codes_models.py` contains all models of evidences
-*	The `generators` folder contains generators for Plant UML models, markdown files, and Latex tables. These are generated into `_generated'. This markdown file renders almost the complete model.
-*	The file `GT_coding.py` in the `metamodels` folder shows the meta-class of grounded theory coding
+*	The `generators` folder contains generators for Plant UML models. These are generated into `_generated'.
 
 
 ## Getting Started

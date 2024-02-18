@@ -1,0 +1,74 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "Which capabilities/APIs should be offered by the\ninfrastructure utility plane for executing data\nproduct components, and how?\n : Decision" as __1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_
+class "Ingesting Data from Various Sources\n : Practice" as __2_Ingesting_Data_from_Various_Sources
+class "Federated Query Engine : Pattern" as __3_Federated_Query_Engine
+class "Stream/Batch Data Connectors : Pattern" as __4_Stream_Batch_Data_Connectors
+class "Sending Data to Various Sinks : Practice" as __5_Sending_Data_to_Various_Sinks
+class "Legacy and Operational System Connectors\n : Pattern" as __6_Legacy_and_Operational_System_Connectors
+class "BI Tool Connectors : Pattern" as __7_BI_Tool_Connectors
+class "Connector Repository : Pattern" as __8_Connector_Repository
+class "Pipeline Connectors : Pattern" as __9_Pipeline_Connectors
+class "How to support customization and reuse of pipelines?\n : Decision" as __10_How_to_support_customization_and_reuse_of_pipelines_
+class "Pipeline Templates : Practice" as __11_Pipeline_Templates
+class "Pipeline/Workflow : Pattern" as __12_Pipeline_Workflow
+class "How to support orchestration of complex data transformations?\n : Decision" as __13_How_to_support_orchestration_of_complex_data_transformations_
+class "Transforming Data : Practice" as __14_Transforming_Data
+class "Batch/Stream Data Processors : Pattern" as __15_Batch_Stream_Data_Processors
+class "BI Tools : Pattern" as __16_BI_Tools
+class "How to support generalists as well data engineers\nin product teams in writing data transformations?\n : Decision" as __17_How_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations_
+class "External DSL : Pattern" as __18_External_DSL
+class "Embedded DSL : Pattern" as __19_Embedded_DSL
+class "Low/no Code Programming Model : Pattern" as __20_Low_no_Code_Programming_Model
+class "Pipeline Orchestrator : Pattern" as __21_Pipeline_Orchestrator
+class "Data Pipeline : Pattern" as __22_Data_Pipeline
+class "ML Pipeline : Pattern" as __23_ML_Pipeline
+class "Template Repository : Pattern" as __24_Template_Repository
+class "Storing Various Data : Practice" as __25_Storing_Various_Data
+class "Polygot Data Storage : Pattern" as __26_Polygot_Data_Storage
+class "Event Stream Platform : Pattern" as __27_Event_Stream_Platform
+class "Storing Other Various Assets : Practice" as __28_Storing_Other_Various_Assets
+class "Schema Registry : Pattern" as __29_Schema_Registry
+class "Model Store : Pattern" as __30_Model_Store
+class "Metadata Store : Practice" as __31_Metadata_Store
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __2_Ingesting_Data_from_Various_Sources: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __5_Sending_Data_to_Various_Sinks: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __14_Transforming_Data: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __25_Storing_Various_Data: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_APIs_should_be_offered_by_the_infrastructure_utility_plane_for_executing_data_product_components__and_how_ --> __28_Storing_Other_Various_Assets: "«Option» \n{name = "Option"}\n" 
+__2_Ingesting_Data_from_Various_Sources --> __3_Federated_Query_Engine: "«Option» \n" 
+__2_Ingesting_Data_from_Various_Sources --> __4_Stream_Batch_Data_Connectors: "«Option» \n" 
+__4_Stream_Batch_Data_Connectors --> __6_Legacy_and_Operational_System_Connectors: "«Option» \n" 
+__4_Stream_Batch_Data_Connectors --> __7_BI_Tool_Connectors: "«Includes» \n" 
+__4_Stream_Batch_Data_Connectors --> __8_Connector_Repository: "«Requires» \n" 
+__5_Sending_Data_to_Various_Sinks --> __4_Stream_Batch_Data_Connectors: "«Option» \n" 
+__9_Pipeline_Connectors --> __8_Connector_Repository: "«Requires» \n" 
+__10_How_to_support_customization_and_reuse_of_pipelines_ --> __9_Pipeline_Connectors: "«Option» \n" 
+__10_How_to_support_customization_and_reuse_of_pipelines_ --> __11_Pipeline_Templates: "«Option» \n" 
+__11_Pipeline_Templates --> __24_Template_Repository: "«Requires» \n" 
+__12_Pipeline_Workflow --> __21_Pipeline_Orchestrator: "«Consider if not Decided» \n" 
+__12_Pipeline_Workflow --> __22_Data_Pipeline: "«Includes» \n" 
+__12_Pipeline_Workflow --> __23_ML_Pipeline: "«Includes» \n" 
+__12_Pipeline_Workflow --> __11_Pipeline_Templates: "«Can Use» \n" 
+__12_Pipeline_Workflow --> __10_How_to_support_customization_and_reuse_of_pipelines_: "«Consider if not Decided» \n" 
+__13_How_to_support_orchestration_of_complex_data_transformations_ --> __12_Pipeline_Workflow: "«Uses» \n" 
+__14_Transforming_Data --> __15_Batch_Stream_Data_Processors: "«Option» \n" 
+__14_Transforming_Data --> __13_How_to_support_orchestration_of_complex_data_transformations_: "«Consider if not Decided» \n" 
+__14_Transforming_Data --> __16_BI_Tools: "«Option» \n" 
+__14_Transforming_Data --> __17_How_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations_: "«Consider if not Decided» \n" 
+__17_How_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations_ --> __18_External_DSL: "«Option» \n" 
+__17_How_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations_ --> __19_Embedded_DSL: "«Option» \n" 
+__17_How_to_support_generalists_as_well_data_engineers_in_product_teams_in_writing_data_transformations_ --> __20_Low_no_Code_Programming_Model: "«Option» \n" 
+__23_ML_Pipeline --> __22_Data_Pipeline: "«Can Be Combined With» \n" 
+__25_Storing_Various_Data --> __26_Polygot_Data_Storage: "«Option» \n" 
+__25_Storing_Various_Data --> __27_Event_Stream_Platform: "«Option» \n" 
+__28_Storing_Other_Various_Assets --> __29_Schema_Registry: "«Option» \n" 
+__28_Storing_Other_Various_Assets --> __30_Model_Store: "«Option» \n" 
+__28_Storing_Other_Various_Assets --> __31_Metadata_Store: "«Option» \n" 
+@enduml

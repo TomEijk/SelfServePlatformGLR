@@ -1,0 +1,64 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "Which capabilities should be offered by the data\nproduct experience plane?\n : Decision" as __1_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_
+class "Build DP : Practice" as __2_Build_DP
+class "How to enable developers to correctly assemble\nall code units and treat them as a single architectural\nquantum?\n : Decision" as __3_How_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum_
+class "Test DP : Practice" as __4_Test_DP
+class "How to make the experience of discovering detailed\ninformation of a product uniform?\n : Decision" as __5_How_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform_
+class "Connect and Read DP : Practice" as __6_Connect_and_Read_DP
+class "How to enable comnsumers to provide the feedback\non a product?\n : Decision" as __7_How_to_enable_comnsumers_to_provide_the_feedback_on_a_product_
+class "Data Product Code Repository : Pattern" as __8_Data_Product_Code_Repository
+class "Low-level Catalog APIs : Pattern" as __9_Low_level_Catalog_APIs
+class "Data Catalog Template : Practice" as __10_Data_Catalog_Template
+class "Product Blueprint : Practice" as __11_Product_Blueprint
+class "How to automate building and delivery of DPs?\n : Decision" as __12_How_to_automate_building_and_delivery_of_DPs_
+class "CI-CD Integration : Practice" as __13_CI_CD_Integration
+class "IaC Blueprint : Practice" as __14_IaC_Blueprint
+class "Data Product Metric : Practice" as __15_Data_Product_Metric
+class "Metric Calculation Pipeline : Pattern" as __16_Metric_Calculation_Pipeline
+class "Data Product Contract : Pattern" as __17_Data_Product_Contract
+class "Publish DP : Practice" as __18_Publish_DP
+class "Deploy DP : Practice" as __19_Deploy_DP
+class "Monitor DP : Practice" as __20_Monitor_DP
+class "Govern DP : Practice" as __21_Govern_DP
+class "Evolve DP : Practice" as __22_Evolve_DP
+class "How to safely change products and how to notify\nchanges?\n : Decision" as __23_How_to_safely_change_products_and_how_to_notify_changes_
+class "Version DP : Practice" as __24_Version_DP
+class "Push/pull Notification : Pattern" as __25_Push_pull_Notification
+__1_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __2_Build_DP: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __4_Test_DP: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __19_Deploy_DP: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __18_Publish_DP: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __6_Connect_and_Read_DP: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __20_Monitor_DP: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __21_Govern_DP: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __22_Evolve_DP: "«Option» \n{name = "Option"}\n" 
+__1_Which_capabilities_should_be_offered_by_the_data_product_experience_plane_ --> __24_Version_DP: "«Option» \n{name = "Option"}\n" 
+__2_Build_DP --> __3_How_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum_: "«Consider if not Decided» \n" 
+__3_How_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum_ --> __11_Product_Blueprint: "«Option» \n" 
+__4_Test_DP --> __3_How_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum_: "«Consider if not Decided» \n" 
+__4_Test_DP --> __5_How_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform_: "«Consider if not Decided» \n" 
+__5_How_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform_ --> __15_Data_Product_Metric: "«Option» \n" 
+__5_How_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform_ --> __17_Data_Product_Contract: "«Option» \n" 
+__6_Connect_and_Read_DP --> __5_How_to_make_the_experience_of_discovering_detailed_information_of_a_product_uniform_: "«Consider if not Decided» \n" 
+__6_Connect_and_Read_DP --> __7_How_to_enable_comnsumers_to_provide_the_feedback_on_a_product_: "«Consider if not Decided» \n" 
+__7_How_to_enable_comnsumers_to_provide_the_feedback_on_a_product_ --> __8_Data_Product_Code_Repository: "«Option» \n" 
+__7_How_to_enable_comnsumers_to_provide_the_feedback_on_a_product_ --> __9_Low_level_Catalog_APIs: "«Option» \n" 
+__10_Data_Catalog_Template --> __9_Low_level_Catalog_APIs: "«Requires» \n" 
+__11_Product_Blueprint --> __12_How_to_automate_building_and_delivery_of_DPs_: "«Consider if not Decided» \n" 
+__11_Product_Blueprint --> __14_IaC_Blueprint: "«Includes» \n" 
+__11_Product_Blueprint --> __10_Data_Catalog_Template: "«Includes» \n" 
+__12_How_to_automate_building_and_delivery_of_DPs_ --> __13_CI_CD_Integration: "«Option» \n" 
+__15_Data_Product_Metric --> __16_Metric_Calculation_Pipeline: "«Can Use» \n" 
+__18_Publish_DP --> __17_Data_Product_Contract: "«Can Use» \n" 
+__19_Deploy_DP --> __3_How_to_enable_developers_to_correctly_assemble_all_code_units_and_treat_them_as_a_single_architectural_quantum_: "«Consider if not Decided» \n" 
+__22_Evolve_DP --> __23_How_to_safely_change_products_and_how_to_notify_changes_: "«Consider if not Decided» \n" 
+__23_How_to_safely_change_products_and_how_to_notify_changes_ --> __24_Version_DP: "«Option» \n" 
+__23_How_to_safely_change_products_and_how_to_notify_changes_ --> __25_Push_pull_Notification: "«Option» \n" 
+@enduml

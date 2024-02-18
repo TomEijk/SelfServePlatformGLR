@@ -1,0 +1,50 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+class "What capabilities should be offered by a data\nmesh experience plane and how?\n : Decision" as __1_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_
+class "Register Data Products : Practice" as __2_Register_Data_Products
+class "How to provide a uniform experience for registering\nand browsing data products?\n : Decision" as __3_How_to_provide_a_uniform_experience_for_registering_and_browsing_data_products_
+class "Search Data Products : Practice" as __4_Search_Data_Products
+class "Data Product Registry : Practice" as __5_Data_Product_Registry
+class "What should be displaced in the dashboard?\n : Decision" as __6_What_should_be_displaced_in_the_dashboard_
+class "Data Mesh Dashboard : Practice" as __7_Data_Mesh_Dashboard
+class "Monitor Data Mesh : Practice" as __8_Monitor_Data_Mesh
+class "Data Product Access History : Practice" as __9_Data_Product_Access_History
+class "Global Data Lineage Graphs : Pattern" as __10_Global_Data_Lineage_Graphs
+class "Data Mesh Graphs : Pattern" as __11_Data_Mesh_Graphs
+class "Alerts : Pattern" as __12_Alerts
+class "Automated : Practice" as __13_Automated
+class "How to enforce global policies? : Decision" as __14_How_to_enforce_global_policies_
+class "Govern Data Mesh : Practice" as __15_Govern_Data_Mesh
+class "How to enforce data contracts? : Decision" as __16_How_to_enforce_data_contracts_
+class "Manual or Semi-Automated : Practice" as __17_Manual_or_Semi_Automated
+class "High-level Policy Enforcement API : Pattern" as __18_High_level_Policy_Enforcement_API
+__1_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_ --> __2_Register_Data_Products: "«Option» \n{name = "Option"}\n" 
+__1_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_ --> __4_Search_Data_Products: "«Option» \n{name = "Option"}\n" 
+__1_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_ --> __8_Monitor_Data_Mesh: "«Option» \n{name = "Option"}\n" 
+__1_What_capabilities_should_be_offered_by_a_data_mesh_experience_plane_and_how_ --> __15_Govern_Data_Mesh: "«Option» \n{name = "Option"}\n" 
+__2_Register_Data_Products --> __3_How_to_provide_a_uniform_experience_for_registering_and_browsing_data_products_: "«Consider if not Decided» \n" 
+__3_How_to_provide_a_uniform_experience_for_registering_and_browsing_data_products_ --> __5_Data_Product_Registry: "«Option» \n" 
+__4_Search_Data_Products --> __3_How_to_provide_a_uniform_experience_for_registering_and_browsing_data_products_: "«Consider if not Decided» \n" 
+__6_What_should_be_displaced_in_the_dashboard_ --> __5_Data_Product_Registry: "«Can Use» \n" 
+__6_What_should_be_displaced_in_the_dashboard_ --> __9_Data_Product_Access_History: "«Option» \n" 
+__6_What_should_be_displaced_in_the_dashboard_ --> __10_Global_Data_Lineage_Graphs: "«Option» \n" 
+__6_What_should_be_displaced_in_the_dashboard_ --> __11_Data_Mesh_Graphs: "«Option» \n" 
+__6_What_should_be_displaced_in_the_dashboard_ --> __12_Alerts: "«Option» \n" 
+__7_Data_Mesh_Dashboard --> __6_What_should_be_displaced_in_the_dashboard_: "«Consider if not Decided» \n" 
+__8_Monitor_Data_Mesh --> __7_Data_Mesh_Dashboard: "«Uses» \n" 
+__13_Automated --> __12_Alerts: "«Can Use» \n" 
+__13_Automated --> __18_High_level_Policy_Enforcement_API: "«Can Use» \n" 
+__14_How_to_enforce_global_policies_ --> __13_Automated: "«Option» \n" 
+__14_How_to_enforce_global_policies_ --> __17_Manual_or_Semi_Automated: "«Option» \n" 
+__15_Govern_Data_Mesh --> __14_How_to_enforce_global_policies_: "«Consider if not Decided» \n" 
+__15_Govern_Data_Mesh --> __16_How_to_enforce_data_contracts_: "«Consider if not Decided» \n" 
+__16_How_to_enforce_data_contracts_ --> __13_Automated: "«Option» \n" 
+__16_How_to_enforce_data_contracts_ --> __17_Manual_or_Semi_Automated: "«Option» \n" 
+__17_Manual_or_Semi_Automated --> __18_High_level_Policy_Enforcement_API: "«Can Use» \n" 
+@enduml
