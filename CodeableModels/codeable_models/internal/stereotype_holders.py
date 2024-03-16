@@ -1,5 +1,5 @@
-from codeable_models.cexception import CException
-from codeable_models.internal.commons import is_cclass, is_clink, check_is_cstereotype, is_cstereotype, \
+from CodeableModels.codeable_models.cexception import CException
+from CodeableModels.codeable_models.internal.commons import is_cclass, is_clink, check_is_cstereotype, is_cstereotype, \
     check_named_element_is_not_deleted
 
 

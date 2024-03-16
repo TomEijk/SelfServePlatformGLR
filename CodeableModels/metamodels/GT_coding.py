@@ -1,5 +1,5 @@
 # ### Sources and Metadata ###
-from codeable_models import CEnum, CMetaclass
+from CodeableModels.codeable_models import CEnum, CMetaclass
 
 source_type = CEnum("Source Type", values=["Discussion Forum Post", "General Audience Article",
                                            "Practitioner Audience Article", "Practitioner Book",

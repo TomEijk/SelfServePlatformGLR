@@ -10,7 +10,7 @@ stereotype for extensions with connector types.
 
 """
 
-from codeable_models import CMetaclass, CBundle, CStereotype
+from CodeableModels.codeable_models import CMetaclass, CBundle, CStereotype
 
 # Component and component type
 component = CMetaclass("Component")

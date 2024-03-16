@@ -1,5 +1,5 @@
-from codeable_models.cbundlable import CBundlable
-from codeable_models.cexception import CException
+from CodeableModels.codeable_models.cbundlable import CBundlable
+from CodeableModels.codeable_models.cexception import CException
 
 
 class CEnum(CBundlable):

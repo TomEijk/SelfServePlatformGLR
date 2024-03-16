@@ -11,47 +11,32 @@ This repository / data set contains the following elements:
   -	The file `self_serve_platform_models.py` contains all models of ADDs
 *	The `generators` folder contains generators for Plant UML models. These are generated into `_generated'.
 
+### Prerequisites / Installing
+
+At first, make sure the Self_Serve_Platform_GLR is set as your working directory. 
+
+Next, the correct PYTHONPATH must be set. 
+Run the following command in your terminal:
+
+For Windows:
+
+```
+set PYTHONPATH=%PYTHONPATH%;..\CodeableModels
+```
+
+For MacOS:
+
+```
+export PYTHONPATH=$PYTHONPATH:../CodeableModels   
+```
 
 ## Getting Started
 
-In order to generate the files, [Codeable Models](https://github.com/uzdun/CodeableModels/)  and [PlantUML](http://plantuml.com/download) must be downloaded and installed.
-
-Take a look at:
+Make sure you have python3 installed in your terminal and run the following command:
 
 ```
-generators/generate_all.py
+python3 self_serve_platform_codeablemodels/generators
 ```
-
-which generates all figures for the models and .md/latex files. Run it in the `generators` directory using:
-
-```
-python .\generate_all.py
-```
-
-### Prerequisites / Installing
-
-[PlantUML](http://plantuml.com/download)'s jar file and  
-[Codeable Models](https://github.com/uzdun/CodeableModels/) 
-are required and the PYTHONPATH must be correctly set:
-
-* The directory containing `codeableModels` and `plantUMLRenderer` must be on the PYTHONPATH.
-* The directory containing this project must be on the PYTHONPATH.
-
-See plant_uml_renderer directory in [Codeable Models](https://github.com/uzdun/CodeableModels/) for instructions how
-to set up the plant UML jar. Without further configuration it is assumed to be in the default directory:
-
-```
-self.directory = "../_generated"
-self.plant_uml_jar_path = "../../libs/plantuml.jar"
-```
-
-## Running the tests
-
-TBD
-
-## Deployment
-
-TBD
 
 ## Built With
 

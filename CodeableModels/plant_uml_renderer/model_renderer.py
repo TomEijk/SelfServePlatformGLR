@@ -2,8 +2,8 @@ import os
 from enum import Enum
 from subprocess import call
 
-from codeable_models import *
-from codeable_models.internal.commons import set_keyword_args, is_cobject
+from CodeableModels.codeable_models import *
+from CodeableModels.codeable_models.internal.commons import set_keyword_args, is_cobject
 
 
 def get_encoded_name(element):

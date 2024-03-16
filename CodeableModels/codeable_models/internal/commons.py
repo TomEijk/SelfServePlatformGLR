@@ -1,4 +1,4 @@
-from codeable_models.cexception import CException
+from CodeableModels.codeable_models.cexception import CException
 
 
 def set_keyword_args(obj, allowed_values, **kwargs):
@@ -36,84 +36,84 @@ def is_known_attribute_type(test_type):
 
 
 def is_cenum(elt):
-    from codeable_models.cenum import CEnum
+    from CodeableModels.codeable_models.cenum import CEnum
     if isinstance(elt, CEnum):
         return True
     return False
 
 
 def is_cclassifier(elt):
-    from codeable_models.cclassifier import CClassifier
+    from CodeableModels.codeable_models.cclassifier import CClassifier
     if isinstance(elt, CClassifier):
         return True
     return False
 
 
 def is_cnamedelement(elt):
-    from codeable_models.cnamedelement import CNamedElement
+    from CodeableModels.codeable_models.cnamedelement import CNamedElement
     if isinstance(elt, CNamedElement):
         return True
     return False
 
 
 def is_cattribute(elt):
-    from codeable_models.cattribute import CAttribute
+    from CodeableModels.codeable_models.cattribute import CAttribute
     if isinstance(elt, CAttribute):
         return True
     return False
 
 
 def is_cobject(elt):
-    from codeable_models.cobject import CObject
+    from CodeableModels.codeable_models.cobject import CObject
     if isinstance(elt, CObject):
         return True
     return False
 
 
 def is_cclass(elt):
-    from codeable_models.cclass import CClass
+    from CodeableModels.codeable_models.cclass import CClass
     if isinstance(elt, CClass):
         return True
     return False
 
 
 def is_cmetaclass(elt):
-    from codeable_models.cmetaclass import CMetaclass
+    from CodeableModels.codeable_models.cmetaclass import CMetaclass
     if isinstance(elt, CMetaclass):
         return True
     return False
 
 
 def is_cstereotype(elt):
-    from codeable_models.cstereotype import CStereotype
+    from CodeableModels.codeable_models.cstereotype import CStereotype
     if isinstance(elt, CStereotype):
         return True
     return False
 
 
 def is_cbundle(elt):
-    from codeable_models.cbundle import CBundle
+    from CodeableModels.codeable_models.cbundle import CBundle
     if isinstance(elt, CBundle):
         return True
     return False
 
 
 def is_cbundlable(elt):
-    from codeable_models.cbundlable import CBundlable
+    from CodeableModels.codeable_models.cbundlable import CBundlable
     if isinstance(elt, CBundlable):
         return True
     return False
 
 
 def is_cassociation(elt):
-    from codeable_models.cassociation import CAssociation
+    from CodeableModels.codeable_models.cassociation import CAssociation
     if isinstance(elt, CAssociation):
         return True
     return False
 
 
 def is_clink(elt):
-    from codeable_models.clink import CLink
+    from CodeableModels.codeable_models.clink import CLink
     if isinstance(elt, CLink):
         return True
     return False

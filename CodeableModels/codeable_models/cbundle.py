@@ -1,6 +1,6 @@
-from codeable_models import CBundlable
-from codeable_models.cexception import CException
-from codeable_models.internal.commons import is_cnamedelement, check_named_element_is_not_deleted
+from CodeableModels.codeable_models import CBundlable
+from CodeableModels.codeable_models.cexception import CException
+from CodeableModels.codeable_models.internal.commons import is_cnamedelement, check_named_element_is_not_deleted
 
 
 class CBundle(CBundlable):

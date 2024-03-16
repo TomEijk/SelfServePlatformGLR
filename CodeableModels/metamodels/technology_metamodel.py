@@ -7,7 +7,7 @@ This is a simple meta-model for modelling technologies used in a system as stere
 """
 
 
-from codeable_models import CMetaclass, CBundle, CStereotype
+from CodeableModels.codeable_models import CMetaclass, CBundle, CStereotype
 
 # Technology and technology type
 technology = CMetaclass("Technology")

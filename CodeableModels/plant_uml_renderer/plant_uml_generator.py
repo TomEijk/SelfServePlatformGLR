@@ -1,13 +1,12 @@
 import os
 import shutil
-from plant_uml_renderer.class_model_renderer import ClassModelRenderer
-from plant_uml_renderer.object_model_renderer import ObjectModelRenderer
-
+from CodeableModels.plant_uml_renderer.class_model_renderer import ClassModelRenderer
+from CodeableModels.plant_uml_renderer.object_model_renderer import ObjectModelRenderer
 
 class PlantUMLGenerator(object):
     def __init__(self, delete_gen_dir_during_init=False):
-        self._directory = "/Users/tomvaneijk/Documents/Self_Serve_Platform_GLR/self_serve_platform_codeablemodels/_generated"
-        self._plant_uml_jar_path = "/Users/tomvaneijk/Documents/Self_Serve_Platform_GLR/CodeableModels/plant_uml_renderer/plantuml-1.2023.12.jar"
+        self._directory = "self_serve_platform_codeablemodels/_generated"
+        self._plant_uml_jar_path = "CodeableModels/plant_uml_renderer/plantuml-1.2023.12.jar"
         
         if delete_gen_dir_during_init:
             self.delete_gen_dir()

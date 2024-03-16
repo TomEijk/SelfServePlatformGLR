@@ -1,8 +1,8 @@
-from codeable_models import CClass, add_links, CBundle
-from metamodels.guidance_metamodel import do_nothing_design_solution, decision, practice, add_decision_option_link, \
-    add_stereotyped_link_with_how_tagged_value, force, negative, uses, positive, can_be_realized_with, extension, can_be_combined_with, \
-    consider_if_not_decided_yet, decide_for_some_instances_of, pattern, decide_for_all_instances_of, requires,\
-    very_negative, neutral, very_positive, can_use, enables, variant, is_a, includes, leads_to, realizes, option2, consider_if_not_decided
+from CodeableModels.codeable_models import CClass, add_links, CBundle
+from CodeableModels.metamodels.guidance_metamodel import decision, practice, add_decision_option_link, \
+    force, uses, can_be_combined_with, \
+    consider_if_not_decided_yet, pattern, requires,\
+     can_use, includes, option2, consider_if_not_decided
 
 
 def add_force_relations(force_relations_definition):

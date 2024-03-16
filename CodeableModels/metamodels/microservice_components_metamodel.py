@@ -7,7 +7,7 @@ found in microservices and other service-based systems.
 
 """
 
-from metamodels.component_metamodel import *
+from CodeableModels.metamodels.component_metamodel import *
 
 # Component types
 service = CStereotype("Service", superclasses=component_type)

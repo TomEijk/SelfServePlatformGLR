@@ -1,7 +1,7 @@
-from codeable_models.cclassifier import CClassifier
-from codeable_models.cexception import CException
-from codeable_models.internal.commons import check_is_cclass
-from codeable_models.internal.stereotype_holders import CStereotypesHolder
+from CodeableModels.codeable_models.cclassifier import CClassifier
+from CodeableModels.codeable_models.cexception import CException
+from CodeableModels.codeable_models.internal.commons import check_is_cclass
+from CodeableModels.codeable_models.internal.stereotype_holders import CStereotypesHolder
 
 
 class CMetaclass(CClassifier):

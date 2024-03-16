@@ -1,7 +1,7 @@
-from codeable_models.cattribute import CAttribute
-from codeable_models.cbundlable import CBundlable
-from codeable_models.cenum import CEnum
-from codeable_models.internal.commons import *
+from CodeableModels.codeable_models.cattribute import CAttribute
+from CodeableModels.codeable_models.cbundlable import CBundlable
+from CodeableModels.codeable_models.cenum import CEnum
+from CodeableModels.codeable_models.internal.commons import *
 
 
 class CClassifier(CBundlable):
@@ -347,7 +347,7 @@ class CClassifier(CBundlable):
         constructor of :py:class:`.CAssociation`.
 
         """
-        from codeable_models.cassociation import CAssociation
+        from CodeableModels.codeable_models.cassociation import CAssociation
         return CAssociation(self, target, descriptor, **kwargs)
 
     def compute_connected_(self, context):

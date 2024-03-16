@@ -1,4 +1,4 @@
-from codeable_models.internal.commons import *
+from CodeableModels.codeable_models.internal.commons import *
 
 
 class CAttribute(object):

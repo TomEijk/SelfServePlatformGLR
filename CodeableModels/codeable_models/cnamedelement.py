@@ -1,5 +1,5 @@
-from codeable_models.cexception import CException
-from codeable_models.internal.commons import set_keyword_args
+from CodeableModels.codeable_models.cexception import CException
+from CodeableModels.codeable_models.internal.commons import set_keyword_args
 
 
 class CNamedElement(object):

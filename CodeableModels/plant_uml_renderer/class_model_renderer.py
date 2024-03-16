@@ -1,6 +1,6 @@
-from codeable_models import CException
-from codeable_models.internal.commons import is_cenum, is_cclassifier, set_keyword_args, is_cstereotype, is_cmetaclass
-from plant_uml_renderer.model_renderer import RenderingContext, ModelRenderer
+from CodeableModels.codeable_models import CException
+from CodeableModels.codeable_models.internal.commons import is_cenum, is_cclassifier, set_keyword_args, is_cstereotype, is_cmetaclass
+from CodeableModels.plant_uml_renderer.model_renderer import RenderingContext, ModelRenderer
 
 
 class ClassifierRenderingContext(RenderingContext):

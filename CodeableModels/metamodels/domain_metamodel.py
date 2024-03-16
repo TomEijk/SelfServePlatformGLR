@@ -6,7 +6,7 @@ and-combined and or-combined groups).
 
 """
 
-from codeable_models import CMetaclass, CBundle
+from CodeableModels.codeable_models import CMetaclass, CBundle
 
 domain_metaclass = CMetaclass("Domain Class")
 domain_metaclass_group = CMetaclass("Domain Class Group", superclasses=domain_metaclass)

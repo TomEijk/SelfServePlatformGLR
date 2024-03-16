@@ -1,6 +1,6 @@
-from codeable_models.cexception import CException
-from codeable_models.cnamedelement import CNamedElement
-from codeable_models.internal.commons import set_keyword_args, check_named_element_is_not_deleted, is_cbundle, \
+from CodeableModels.codeable_models.cexception import CException
+from CodeableModels.codeable_models.cnamedelement import CNamedElement
+from CodeableModels.codeable_models.internal.commons import set_keyword_args, check_named_element_is_not_deleted, is_cbundle, \
     is_cmetaclass, is_cstereotype, is_cbundlable, is_cassociation, is_cclass, is_cobject, is_clink
 
 

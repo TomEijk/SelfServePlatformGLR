@@ -1,8 +1,6 @@
-from codeable_models import CException
-from codeable_models.internal.commons import set_keyword_args, is_cclass, is_cobject
-# from enum import Enum 
-# from codeable_models import CNamedElement
-from plant_uml_renderer.model_renderer import RenderingContext, ModelRenderer
+from CodeableModels.codeable_models import CException
+from CodeableModels.codeable_models.internal.commons import set_keyword_args, is_cclass, is_cobject
+from CodeableModels.plant_uml_renderer.model_renderer import RenderingContext, ModelRenderer
 
 
 class ObjectRenderingContext(RenderingContext):

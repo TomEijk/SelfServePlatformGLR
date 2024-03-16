@@ -1,7 +1,7 @@
-from codeable_models.cobject import CObject
-from codeable_models.internal.commons import *
-from codeable_models.internal.stereotype_holders import CStereotypeInstancesHolder
-from codeable_models.internal.var_values import delete_var_value, set_var_value, get_var_value, get_var_values, \
+from CodeableModels.codeable_models.cobject import CObject
+from CodeableModels.codeable_models.internal.commons import *
+from CodeableModels.codeable_models.internal.stereotype_holders import CStereotypeInstancesHolder
+from CodeableModels.codeable_models.internal.var_values import delete_var_value, set_var_value, get_var_value, get_var_values, \
     set_var_values, VarValueKind
 
 

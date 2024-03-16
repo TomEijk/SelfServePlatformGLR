@@ -1,8 +1,8 @@
-from codeable_models.cassociation import CAssociation
-from codeable_models.cbundlable import CBundlable
-from codeable_models.cmetaclass import CMetaclass
-from codeable_models.internal.commons import *
-from codeable_models.internal.var_values import delete_var_value, set_var_value, get_var_value, get_var_values, \
+from CodeableModels.codeable_models.cassociation import CAssociation
+from CodeableModels.codeable_models.cbundlable import CBundlable
+from CodeableModels.codeable_models.cmetaclass import CMetaclass
+from CodeableModels.codeable_models.internal.commons import *
+from CodeableModels.codeable_models.internal.var_values import delete_var_value, set_var_value, get_var_value, get_var_values, \
     set_var_values, VarValueKind
 
 
@@ -306,7 +306,7 @@ class CObject(CBundlable):
             list[CObject]: List of linked objects
 
         """
-        from codeable_models.clink import LinkKeywordsContext
+        from CodeableModels.codeable_models.clink import LinkKeywordsContext
         context = LinkKeywordsContext(**kwargs)
 
         result = []
@@ -347,7 +347,7 @@ class CObject(CBundlable):
             list[CLink]: List of created link objects.
 
         """
-        from codeable_models.clink import add_links
+        from CodeableModels.codeable_models.clink import add_links
         return add_links({self: links}, **kwargs)
 
     def delete_links(self, links, **kwargs):
@@ -366,7 +366,7 @@ class CObject(CBundlable):
             list[CLink]: List of deleted link objects.
 
         """
-        from codeable_models.clink import delete_links
+        from CodeableModels.codeable_models.clink import delete_links
         return delete_links({self: links}, **kwargs)
 
     def compute_connected_(self, context):

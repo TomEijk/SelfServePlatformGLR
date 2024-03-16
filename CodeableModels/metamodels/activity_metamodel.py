@@ -9,7 +9,7 @@ as well as an ``edge_relation`` to define a graph of such nodes.
 
 """
 
-from codeable_models import CMetaclass, CBundle
+from CodeableModels.codeable_models import CMetaclass, CBundle
 
 # node types
 activity_node = CMetaclass("Activity Node")

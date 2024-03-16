@@ -1,9 +1,9 @@
 import re
 
-from codeable_models.cexception import CException
-from codeable_models.cclassifier import CClassifier
-from codeable_models.internal.commons import is_cmetaclass, is_cstereotype
-from codeable_models.internal.stereotype_holders import CStereotypesHolder
+from CodeableModels.codeable_models.cexception import CException
+from CodeableModels.codeable_models.cclassifier import CClassifier
+from CodeableModels.codeable_models.internal.commons import is_cmetaclass, is_cstereotype
+from CodeableModels.codeable_models.internal.stereotype_holders import CStereotypesHolder
 
 
 def _check_for_classifier_and_role_name_match(classifier, role_name, association_classifier, association_role_name):

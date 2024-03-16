@@ -1,8 +1,8 @@
-from codeable_models.cassociation import CAssociation
-from codeable_models.cclassifier import CClassifier
-from codeable_models.cmetaclass import CMetaclass
-from codeable_models.internal.commons import *
-from codeable_models.internal.var_values import delete_var_value, set_var_value, get_var_value, get_var_values, \
+from CodeableModels.codeable_models.cassociation import CAssociation
+from CodeableModels.codeable_models.cclassifier import CClassifier
+from CodeableModels.codeable_models.cmetaclass import CMetaclass
+from CodeableModels.codeable_models.internal.commons import *
+from CodeableModels.codeable_models.internal.var_values import delete_var_value, set_var_value, get_var_value, get_var_values, \
     set_var_values, VarValueKind
 
 

@@ -5,8 +5,8 @@ This is a meta-model for modelling architectural guidance models, aka reusable a
 
 """
 
-from codeable_models import CMetaclass, CBundle, CStereotype
-from metamodels.domain_metamodel import domain_metaclass, domain_metamodel
+from CodeableModels.codeable_models import CMetaclass, CBundle, CStereotype
+from CodeableModels.metamodels.domain_metamodel import domain_metaclass, domain_metamodel
 
 model_element = CMetaclass("Model Element", attributes={"aka": str, "description": str})
 category = CMetaclass("Category", superclasses=model_element)
